@@ -54,7 +54,7 @@ deploy:
     - ls -lRa ~/.ssh
     - ls -lRa /root/.ssh
     - ls -la $CI_PROJECT_DIR
-    - ssh -vvv -i "$SSH_PRIVATE_KEY" "debadmin@$TARGET_HOST" 'docker version'
+    #- ssh -vvv -i "$SSH_PRIVATE_KEY" "debadmin@$TARGET_HOST" 'docker version'
     - ssh $TARGET_VM 'docker version'
     - scp -F "/root/.ssh/config" "target/universal/$APP_NAME-1.0-SNAPSHOT.zip" "$DOCKER_ADMIN@${TARGET_HOST}:/tmp/."
     - scp -F "/root/.ssh/config" "Dockerfile" "$DOCKER_ADMIN@${TARGET_HOST}:/tmp/."
