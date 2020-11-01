@@ -31,6 +31,10 @@ class HomeController @Inject() (cc: ControllerComponents) extends AbstractContro
     Ok(views.html.index("Welcome"))
   }
 
+    def booking() = Action { implicit request: Request[AnyContent] =>
+      Ok(views.html.booking("Booking"))
+    }
+  
   //  def about() = Action { implicit request: Request[AnyContent] =>
   //    Ok(views.html.about("About"))
   //  }
@@ -46,7 +50,7 @@ class HomeController @Inject() (cc: ControllerComponents) extends AbstractContro
     appLogger.debug(s"Loading page: $page")
     
     page match {
-     // case "about"    => Ok(views.html.about(page.capitalize))
+      case "booking"    => Ok(views.html.booking(page.capitalize))
      // case "products" => Ok(views.html.products(page.capitalize))
       case _          => Ok(views.html.index("Welcome"))
     }
