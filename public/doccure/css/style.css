@@ -176,6 +176,12 @@ input[type=password] {
 	padding-left: 30px;
 	padding-right: 30px;
 }
+
+.container-fluid-background {
+	padding-left: 30px;
+	padding-right: 30px;
+	background-image: url('../img/home_background.jpg');
+}
 .form-control::-webkit-input-placeholder {
 	color: #858585;
 	font-size: 14px;
@@ -2029,7 +2035,7 @@ html.menu-opened body {
 -----------------------*/
 
 .footer {
-    background-color: #15558d;
+    background-color: #1b380f;
 }
 .footer .footer-top {
 	padding: 40px 0;

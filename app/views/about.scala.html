@@ -1,0 +1,254 @@
+@(topic: String)(implicit messages: Messages)
+
+@main(topic) {  
+
+	
+	
+}{
+
+					
+					<!-- Doctor Details Tab -->
+					<div class="card">
+						<div class="card-body pt-0">
+						
+							<!-- Tab Menu 
+							<nav class="user-tabs mb-4">
+								<ul class="nav nav-tabs nav-tabs-bottom nav-justified">
+									<li class="nav-item">
+										@*<a class="nav-link active" href="#doc_overview" data-toggle="tab">Overview</a>*@
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#doc_locations" data-toggle="tab">Locations</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#doc_reviews" data-toggle="tab">Reviews</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#doc_business_hours" data-toggle="tab">Business Hours</a>
+									</li>
+								</ul>
+							</nav>
+							 -->
+							
+						<div class="container-fluid">
+							<!-- Tab Content -->
+							<div class="tab-content pt-0">
+							
+								<!-- Overview Content -->
+								<div role="tabpanel" id="doc_overview" class="tab-pane fade show active">
+									<div class="row">
+										<div class="col-md-12 col-lg-9">
+										
+											<!-- About Details -->
+											<div class="widget about-widget">
+												<h4 class="widget-title">About Us</h4>
+											
+												<p>We are a premiere full service Hunter Jumper barn that offers lessons, boarding, leasing, horse showing, summer camp, and much more! We offer lessons for all ages beginners through advanced!.</p>
+											</div>
+											<!-- /About Details -->
+										
+								
+											<!-- Awards Details -->
+											<div class="widget awards-widget">
+												<h4 class="widget-title">Services</h4>
+												<div class="experience-box">
+													<ul class="experience-list">
+														<li>
+															<div class="experience-user">
+																<div class="before-circle"></div>
+															</div>
+															<div class="experience-content">
+																
+																	<h4 class="exp-title">Lessons</h4>
+																	<p>We offer lessons for all ages and all levels of riding, beginners through advanced!. We have many different horses available for lessons, wether you have never ridden a horse before or have been riding for years.
+                                                                       Our Head Instructor, Jill Bowden, is amazing at matching up horse and rider, and making sure both are comfortable and able to succeed together.
+                                                                       Contact us today to set up your first lesson or find out more info on pricing. </p>
+																
+															</div>
+														</li>
+														<li>
+															<div class="experience-user">
+																<div class="before-circle"></div>
+															</div>
+															<div class="experience-content">
+																	<h4 class="exp-title">Boarding</h4>
+																	<p>Boarding is full service at Twisdenwood. We offer high quality grain twice daily and hay is available to the horses 24 hours a day.
+                                                                      All day turnout is included, weather permitting. Group or Individual turnout is available.
+                                                                      We have both an indoor and outdoor.
+                                                                      Our barn is not heated, but is extremely well insulated, staying at an average of 50 degrees even in the middle of winter. 
+                                                                       We have two heated viewing rooms available, with a kitchen in one of them. 
+                                                                      Miles of trails to explore right on property</p>
+															</div>
+														</li>
+														<li>
+															<div class="experience-user">
+																<div class="before-circle"></div>
+															</div>
+															<div class="experience-content">
+																	<h4 class="exp-title">Horse Showing</h4>
+																	<p>Twisdenwood attends many shows throughout the show season, both locally and across New England.  
+                                                                      Check out this page for updates on our 2020 show season schedule.</p>
+																</div>
+															</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+										
+			<footer class="footer">
+				<!-- Footer Top -->
+				<div class="footer-top">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-lg-3 col-md-6">
+							
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-about">
+									<div class="footer-logo">
+										@*<img src=""/assets/doccure/img/footer-logo.png" alt="logo">*@
+									</div>
+									<div class="footer-about-content">
+										<p> You can reach us and explore our social media pages. </p>
+										<div class="social-icon">
+											<ul>
+												<li>
+													<a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
+												</li>
+												<li>
+													<a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
+												</li>
+												<li>
+													<a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+												</li>
+												<li>
+													<a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+												</li>
+												<li>
+													<a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<!-- /Footer Widget -->
+								
+							</div>
+							
+							<div class="col-lg-3 col-md-6">
+							
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-menu">
+									<h2 class="footer-title">For Lessons</h2>
+									<ul>
+										<li><a href="search.html">Search for Trainers</a></li>
+										<li><a href="register.html">Register</a></li>
+										<li><a href="booking.html">Booking</a></li>
+									</ul>
+								</div>
+								<!-- /Footer Widget -->
+								
+							</div>
+							
+							<div class="col-lg-3 col-md-6">
+							
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-menu">
+									<h2 class="footer-title">For Horse Showing</h2>
+									<ul>
+										<li><a href="appointments.html">Appointments</a></li>
+										<li><a href="chat.html">Chat</a></li>
+										<li><a href="doctor-register.html">Register</a></li>
+										@*<li><a href="doctor-dashboard.html">Doctor Dashboard</a></li>*@
+									</ul>
+								</div>
+								<!-- /Footer Widget -->
+								
+							</div>
+							
+							<div class="col-lg-3 col-md-6">
+							
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-contact" id="doc_locations">
+									<h2 class="footer-title">Contact Us</h2>
+									<div class="footer-contact-info">
+										<div class="footer-address">
+											<span><i class="fas fa-map-marker-alt"></i></span>
+											<p> 21 Bowlery Drive in Rowley,<br>  Massachusetts, MA, 01969 </p>
+										</div>
+										<p>
+											<i class="fas fa-phone-alt"></i>
+											(978) 314 - 8258
+										</p>
+										
+									</div>
+								</div>
+								<!-- /Footer Widget -->
+								
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				<!-- /Footer Top -->
+				
+				<!-- Footer Bottom -->
+                <div class="footer-bottom">
+					<div class="container-fluid">
+					
+						<!-- Copyright -->
+						<div class="copyright">
+							<div class="row">
+								<div class="col-md-6 col-lg-6">
+									<div class="copyright-text">
+										<p class="mb-0">&copy; 2020 twisdenwood2. All rights reserved.</p>
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-6">
+								
+									<!-- Copyright Menu -->
+									<div class="copyright-menu">
+										<ul class="policy-menu">
+											<li><a href="term-condition.html">Terms and Conditions</a></li>
+											<li><a href="privacy-policy.html">Policy</a></li>
+										</ul>
+									</div>
+									<!-- /Copyright Menu -->
+									
+								</div>
+							</div>
+						</div>
+						<!-- /Copyright -->
+						
+					</div>
+				</div>
+				<!-- /Footer Bottom -->
+				
+			</footer>
+			<!-- /Footer -->
+
+
+
+       	<!-- Bootstrap core JavaScript -->
+ <!-- jQuery 
+		<script src="/assets/doccure/js/jquery.min.js"></script>
+		-->
+		<!-- Bootstrap Core JS 
+		<script src="/assets/doccure/js/popper.min.js"></script>
+		<script src="/assets/doccure/js/bootstrap.min.js"></script>
+		-->
+		<!-- Slick JS 
+		<script src="/assets/doccure/js/slick.js"></script>
+		-->
+		<!-- Custom JS 
+		<script src="/assets/doccure/js/script.js"></script>
+        -->
+    </body>
+</html>
+
+
+											
+}
