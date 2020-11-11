@@ -3417,7 +3417,7 @@ html.menu-opened body {
 	width: 10px;
 }
 .experience-list > li .experience-content {
-	background-color: #fff;
+	background-color: unset;
 	margin: 0 0 20px 40px;
 	padding: 0;
 	position: relative;
