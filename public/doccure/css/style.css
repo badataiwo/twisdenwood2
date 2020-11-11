@@ -3436,11 +3436,11 @@ html.menu-opened body {
 	font-size: 13px;
 }
 .before-circle {
-    background-color: rgba(32, 192, 243, 0.2);
+    background-color: rgba(46, 191, 89, 0.7);
     border-radius: 50%;
     height: 12px;
     width: 12px;
-    border: 2px solid #20c0f3;
+    border: 2px solid #259c1c;
 }
 .exp-year {
     color: #20c0f3;
