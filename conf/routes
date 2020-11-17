@@ -5,6 +5,7 @@
 
 # An example controller showing basic website route navigation
 GET   /               controllers.HomeController.index
+GET	  /booking		 controllers.HomeController.booking()
 GET   /:page          controllers.HomeController.loadPage(page)
 #GET   /products       controllers.HomeController.products()
 

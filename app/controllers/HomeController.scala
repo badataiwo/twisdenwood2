@@ -4,6 +4,7 @@ import javax.inject.Inject
 import play.api._
 import play.api.mvc._
 import play.api.i18n._
+import model.db.collections.Horse
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
@@ -32,7 +33,9 @@ class HomeController @Inject() (cc: ControllerComponents) extends AbstractContro
   }
 
     def booking() = Action { implicit request: Request[AnyContent] =>
-      Ok(views.html.booking("Booking"))
+     val horses = Horse.findAll().toList
+      appLogger.info("Debug Loading booking()")
+      Ok(views.html.booking("Booking", horses))
     }
   
   //  def about() = Action { implicit request: Request[AnyContent] =>
@@ -50,7 +53,7 @@ class HomeController @Inject() (cc: ControllerComponents) extends AbstractContro
     appLogger.debug(s"Loading page: $page")
     
     page match {
-      case "booking"    => Ok(views.html.booking(page.capitalize))
+    //  case "booking"    => Ok(views.html.booking(page.capitalize))
       case "about"      => Ok(views.html.about(page.capitalize))
      // case "products" => Ok(views.html.products(page.capitalize))
       case "forlease" => Ok(views.html.forlease(page.capitalize))
