@@ -6038,7 +6038,7 @@ html.menu-opened body {
 .blog-image > a,
 .blog-image img {
 	display: block;
-	position: static;
+	position: relative;
 	width: 100%;
 	height: auto;
 }

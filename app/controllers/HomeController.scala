@@ -5,6 +5,7 @@ import play.api._
 import play.api.mvc._
 import play.api.i18n._
 import model.db.collections.Horse
+import model.db.collections.Scamp
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
@@ -38,6 +39,9 @@ class HomeController @Inject() (cc: ControllerComponents) extends AbstractContro
       Ok(views.html.booking("Booking", horses))
     }
   
+  
+  
+    
   //  def about() = Action { implicit request: Request[AnyContent] =>
   //    Ok(views.html.about("About"))
   //  }
