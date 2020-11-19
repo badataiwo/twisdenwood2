@@ -34,7 +34,8 @@ class HomeController @Inject() (cc: ControllerComponents) extends AbstractContro
   }
 
     def booking() = Action { implicit request: Request[AnyContent] =>
-     val horses = Horse.findAll().toList
+     // val horses = Horse.findAll().toList
+      val horses = Horse.findActiveHorses().toList
       appLogger.info("Debug Loading booking()")
       Ok(views.html.booking("Booking", horses))
     }

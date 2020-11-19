@@ -28,33 +28,42 @@
 								<!-- Doctor Widget -->
 								<div class="profile-widget">
 									<div class="doc-img">
-										<!-- <img class="img-fluid" alt="User Image" height="630" width="420" src="@routes.Assets.versioned(s"doccure/img/horses/${horse.ImgUrl}")">  -->
-									  <img  alt="User Image" height="630" width="420" src="@routes.Assets.versioned(s"doccure/img/horses/${horse.ImgUrl}")">
+										<img class="img-fluid" alt="User Image"  src="@routes.Assets.versioned(s"doccure/img/horses/${horse.ImgUrl}")">  
+									 <!--  <img  alt="User Image" height="630" width="420" src="@routes.Assets.versioned(s"doccure/img/horses/${horse.ImgUrl}")"> -->
 									</div>
 									<div class="pro-content">
 										<h3 class="title">
 											<a href="doctor-profile.html">@horse.Name</a> 
 											<i class="fas fa-check-circle verified"></i>
 										</h3>
-										<p class="speciality">Size @horse.Size</p>
+										<!-- 
 										<div class="rating">
-											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
 											<span class="d-inline-block average-rating">(17)</span>
 										</div>
+										 -->
 										<ul class="available-info">
-											<li>
-												<i class="fas fa-map-marker-alt"></i> Florida, USA
+										     <li>
+												 Size: @horse.Size
+											</li>
+										     <li>
+												 Level: @horse.Level
 											</li>
 											<li>
-												<i class="far fa-clock"></i> Available on Fri, 22 Mar
+												Color: @horse.Color
 											</li>
 											<li>
-												<i class="far fa-money-bill-alt"></i> $300 - $1000 
-												<i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
+												Gender: @horse.Gender
+											</li>
+											<li>
+												<i class="far fa-clock"></i> Available Now
+											</li>
+											<li>
+												<i class="far fa-money-bill-alt"></i> $@horse.Price 
+												<i class="fas fa-info-circle" data-toggle="tooltip" title="Get the best Horse lesson cheaper"></i>
 											</li>
 										</ul>
 										<div class="row row-sm">
@@ -73,16 +82,5 @@
 				</div>
 			</section>
 			<!-- /Popular Section -->
-   <!-- jQuery -->
-		<script src="assets/js/jquery.min.js"></script>
-		
-		<!-- Bootstrap Core JS -->
-		<script src="assets/js/popper.min.js"></script>
-		<script src="assets/js/bootstrap.min.js"></script>
-		
-		<!-- Slick JS -->
-		<script src="assets/js/slick.js"></script>
-		
-		<!-- Custom JS -->
-		<script src="assets/js/script.js"></script>
+  
 }

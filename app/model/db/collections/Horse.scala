@@ -20,7 +20,7 @@ import model.db.mongo.DataStore
 
 import play.api.Logger
 
-case class Horse(HorseID: String, Name: String, Size: String, Level: String, Color: String, Gender : String, Active: String, ImgUrl: String)
+case class Horse(HorseID: String, Name: String, Size: String, Level: String, Color: String, Gender : String, Active: Boolean, ImgUrl: String, ForLease: Boolean, Price: Double)
 
 object Horse extends DataStore {
 
@@ -36,7 +36,7 @@ object Horse extends DataStore {
   val listings: MongoCollection[Document] = database.getCollection("Horse")
 
   // Insert a new record
-  def create(Name: String, Size: String, Level: String, Color: String, Gender : String, Active: String, ImgUrl: String) = {
+  def create(Name: String, Size: String, Level: String, Color: String, Gender : String, Active: Boolean, ImgUrl: String, ForLease: Boolean, Price: Double) = {
 
     val doc: Document = Document(
       "HorseID" -> UUID.randomUUID().toString(),
@@ -46,7 +46,9 @@ object Horse extends DataStore {
       "Color" -> Color,
       "Gender" -> Gender,
       "Active" -> Active,
-      "ImgUrl" -> ImgUrl)
+      "ImgUrl" -> ImgUrl,
+      "ForLease" -> ForLease,
+      "Price" -> Price)
 
     val observable: Observable[Completed] = listings.insertOne(doc)
 
@@ -77,7 +79,14 @@ object Horse extends DataStore {
     appLogger.info("Result  is: " + rec)
     rec
     /** Todo: What if findRecord returns no results. This should return an option **/
-
+  }
+  
+  def findActiveHorses() = {
+     val rec = coll.find(equal("Active", true)).results()
+     appLogger.info("Active Horses records result is: " + rec)
+     
+     rec
+    
   }
   
   //Get all records
