@@ -1,69 +1,88 @@
-@(topic: String)(implicit messages: Messages)
+@(topic: String, horses : List[model.db.collections.Horse])(implicit messages: Messages)
 
 @main(topic) {  
 
 	
 	
 }{
-	<!-- Doctor Details Tab -->
-					<div class="card">
-					
-						<div class="card-body pt-0">
-						
-							 	<div class="container-fluid">
-							
-								<div role="tabpanel" id="doc_overview" class="tab-pane fade show active">
-									
-									<div class="row">
-									
-										<div class="col-md-12 col-lg-12">
+ 
+<!-- Popular Section -->
+			<section class="section section-doctor">
+				<div class="container-fluid">
+				   <div class="row">
+				     <!--  
+						<div class="col-lg-4">
+							<div class="section-header ">
+								<h2>Book a Horse Lesson</h2>
+								<p>Lorem Ipsum is simply dummy text </p>
+							</div>
+							<div class="about-content">
+								<p>We have some of the best horses in the world, and the best trainers. You surely will learn how to ride a horse in no time./p>
+								<p>Book your lesson today, use this page, browse the list of horses and trainers then book your lesson.</p>					
 								
-											<!-- Horse For lease Details -->
-											<div class="widget about-widget">
-											
-												<p></p>
-											
-											<h1 style ="text-align: center"> Horses Available for Lease</h1>
-											<p>
-											<h4> Tizzy </h4>
-											<a href="javascript:void(0);"><img alt="tizzy" src="@routes.Assets.versioned("doccure/img/horses/tizzy.jpg")" class="img-fluid" width="30%" height="30%"></a>
-										
-											Tizzy is a 16.2 hand bay thoroughbred mare.
-											
-											</p>
-											<p>
-											<h4> Storm</h4>
-											<a href="javascript:void(0);"><img alt="storm" src="@routes.Assets.versioned("doccure/img/horses/storm.jpg")" class="img-fluid" width="30%" height="30%"></a>
-											</p>
-											<p>
-											<h4> Yogi </h4>
-											<a href="javascript:void(0);"><img alt="yogi" src="@routes.Assets.versioned("doccure/img/horses/yogi.heic")" class="img-fluid" width="30%" height="30%"></a>
-											</p>
+							</div>
+						</div>
+						-->
+						<div class="col-lg-8">
+							<div class="doctor-slider slider">
+							@for(horse <-horses) {
+							   
+								<!-- Doctor Widget -->
+								<div class="profile-widget">
+									<div class="doc-img">
+										<img class="img-fluid" alt="User Image"  src="@routes.Assets.versioned(s"doccure/img/horses/${horse.ImgUrl}")">  
+									 <!--  <img  alt="User Image" height="630" width="420" src="@routes.Assets.versioned(s"doccure/img/horses/${horse.ImgUrl}")"> -->
+									</div>
+									<div class="pro-content">
+										<h3 class="title">
+											<a href="doctor-profile.html">@horse.Name</a> 
+											<i class="fas fa-check-circle verified"></i>
+										</h3>
+										<!-- 
+										<div class="rating">
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star filled"></i>
+											<span class="d-inline-block average-rating">(17)</span>
+										</div>
+										 -->
+										<ul class="available-info">
+										     <li>
+												 Size: @horse.Size
+											</li>
+										     <li>
+												 Level: @horse.Level
+											</li>
+											<li>
+												Color: @horse.Color
+											</li>
+											<li>
+												Gender: @horse.Gender
+											</li>
+											<li>
+												<i class="far fa-clock"></i> Available Now
+											</li>
+											<li>
+												<i class="far fa-money-bill-alt"></i> $@horse.Price 
+												<i class="fas fa-info-circle" data-toggle="tooltip" title="Get the best Horse lesson cheaper"></i>
+											</li>
+										</ul>
+										<div class="row row-sm">
+											<div class="col-6">
+												<a href="booking.html" class="btn book-btn">Lease Now</a>
 											</div>
-											
-											
-							 </div>
-							  </div>
-							</div> 
-						</div> 
-       
-
-
-       	<!-- Bootstrap core JavaScript -->
- <!-- jQuery 
-		<script src="/assets/doccure/js/jquery.min.js"></script>
-		-->
-		<!-- Bootstrap Core JS 
-		<script src="/assets/doccure/js/popper.min.js"></script>
-		<script src="/assets/doccure/js/bootstrap.min.js"></script>
-		-->
-		<!-- Slick JS 
-		<script src="/assets/doccure/js/slick.js"></script>
-		-->
-		<!-- Custom JS 
-		<script src="/assets/doccure/js/script.js"></script>
-        -->
-    </body>
-</html>
-
+										</div>
+									</div>
+								</div>
+								<!-- /Doctor Widget -->
+						   }
+										
+							</div>
+						</div>
+				   </div>
+				</div>
+			</section>
+			<!-- /Popular Section -->
+  
 }

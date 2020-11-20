@@ -6,8 +6,8 @@
 # An example controller showing basic website route navigation
 GET   /               controllers.HomeController.index
 GET	  /booking		 controllers.HomeController.booking()
+GET   /forlease		controllers.HomeController.leasing()
 GET   /:page          controllers.HomeController.loadPage(page)
-#GET   /products       controllers.HomeController.products()
 
 # Map static resources from the /public folder to the /assets URL path
 GET   /assets/*file   controllers.Assets.versioned(path="/public", file: Asset)
