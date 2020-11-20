@@ -89,6 +89,14 @@ object Horse extends DataStore {
     
   }
   
+   def findHorsesForLease() = {
+     val rec = coll.find(equal("ForLease", true)).results()
+     appLogger.info("Horses For Lease records result is: " + rec)
+     
+     rec
+    
+  }
+  
   //Get all records
   def findAll() = { coll.find().results() }
 
