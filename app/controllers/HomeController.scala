@@ -1,6 +1,7 @@
 package controllers
 
 import javax.inject.Inject
+import scala.util.Try
 import play.api._
 import play.api.mvc._
 import play.api.i18n._
@@ -39,6 +40,19 @@ class HomeController @Inject() (cc: ControllerComponents) extends AbstractContro
       appLogger.info("Debug Loading booking()")
       Ok(views.html.booking("Booking", horses))
     }
+    
+    def bookingtrainerstep(horseid :  String) = Action { implicit request: Request[AnyContent] =>
+     // val horses = Horse.findAll().toList
+       val lst = request.queryString.toList
+       val keys = request.queryString.keys
+       
+        appLogger.info(s"Debug Loading QueryString list: ${lst}")
+       appLogger.info(s"Debug Loading QueryString keys: ${keys}")
+        
+        val horse = Horse.findRecord(horseid)
+      appLogger.info(s"Debug Loading bookingtrainerstep() ${horseid}")
+      Ok(views.html.bookingtrainer("Booking", horse))
+    }
   
   def leasing() = Action { implicit request: Request[AnyContent] =>
      // val horses = Horse.findAll().toList
@@ -46,6 +60,10 @@ class HomeController @Inject() (cc: ControllerComponents) extends AbstractContro
       appLogger.info("Debug leasing()")
       Ok(views.html.forlease("Horses For Lease", horses))
     }
+  
+  
+  
+  
   
     
   //  def about() = Action { implicit request: Request[AnyContent] =>

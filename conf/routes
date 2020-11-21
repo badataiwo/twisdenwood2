@@ -6,6 +6,7 @@
 # An example controller showing basic website route navigation
 GET   /               controllers.HomeController.index
 GET	  /booking		 controllers.HomeController.booking()
+GET	  /bookingtrainer		 controllers.HomeController.bookingtrainerstep(horseid: String)
 GET   /forlease		controllers.HomeController.leasing()
 GET   /:page          controllers.HomeController.loadPage(page)
 
