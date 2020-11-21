@@ -6,124 +6,98 @@
 	
 }{
 
-					
-					<!-- Doctor Details Tab -->
-					@*<div class="card">
-						<div class="card-body pt-0">*@
-						
-							<!-- Tab Menu 
-							@*<nav class="user-tabs mb-4">
-								<ul class="nav nav-tabs nav-tabs-bottom nav-justified">
-									<li class="nav-item">
-										@*<a class="nav-link active" href="#doc_overview" data-toggle="tab">Overview</a>*@
-									@*</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#doc_locations" data-toggle="tab">Locations</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#doc_reviews" data-toggle="tab">Reviews</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#doc_business_hours" data-toggle="tab">Business Hours</a>
-									</li>
-								</ul>
-							</nav>*@
-							 -->
+<!-- Doctor Details Tab -->
+					<section class="section section-doctor">
+				<div class="container-fluid">
+				   <div class="row">
+				       
+						<div class="col-lg-4">
+							<div class="section-header ">
+								@*<h2>Lease a Horse</h2>*@
+							</div>
+							<div class="about-content">
+							<br></br>
+							<p style = "text-align:justify;">We are a premiere full service Hunter Jumper barn that offers lessons, boarding, leasing, horse showing, summer camp, and much more! We offer lessons for all ages beginners through advanced!</p>
+							<p style = "text-align:justify;">Jill Bowden (pictured right) has owned and operated Twisdenwood Farm since 1998. The company was formed in Georgetown, Massachusetts. Upon changing locations in 2018 to Rowley, Massachusetts, Twisdenwood Farm's name was changed to Twisdenwood II. Jill has over 40 years of experience around horses. When she was a child she participated in eventing and later in life opened her business in the Hunter/Jumper division of horse back riding. Jill's daughter Sam (pictured left) continuously helps her operate her business.</p>
 							
-						<div class="container-fluid">
-							<!-- Tab Content -->
-							<div class="tab-content pt-0">
-							
-								<!-- Overview Content -->
-								<div role="tabpanel" id="doc_overview" class="tab-pane fade show active">
-									<div class="row">
-										<div class="col-md-12 col-lg-11">
-										
-											<!-- About Details -->
-											<div class="widget about-widget">
-												@*<h4 class="widget-title">About Us</h4>*@
-											     <br></br>
-											     @*<p></p>*@
-												<p style = "text-align:justify;">We are a premiere full service Hunter Jumper barn that offers lessons, boarding, leasing, horse showing, summer camp, and much more! We offer lessons for all ages beginners through advanced!</p>
-											</div>
-											<!-- /About Details -->
-											<!-- Breadcrumb -->
-						@*<div class="breadcrumb-bar">
-							<div class="container-fluid">
-								<div class="row align-items-center">
-									<div class="col-md-12 col-12">
-									<nav aria-label="breadcrumb" class="page-breadcrumb">
-										<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Blog</li>
-								</ol>
-							</nav>
-							<h2 class="breadcrumb-title">Blog Details</h2>
+							</div>
 						</div>
-					</div>
-				</div>
-			</div>*@ 
-			<!-- /Breadcrumb -->
-			
-			<!-- Page Content -->
-			<div class="content">
-				<div class="container">
-				
-					<div class="row">
-						<div class="col-lg-12 col-md-14">
-							<div class="blog-view">
-								<div class="blog blog-single-post">
-									<div class="blog-image">
-										<a href="javascript:void(0);"><img alt="" src="@routes.Assets.versioned("doccure/img/samandjill.jpg")" class="img-fluid"></a>
+						@*<div class="col-lg-12 col-md-14">*@
+						<div class="col-lg-8">
+							@*<div class="doctor-slider slider">*@
+							
+							   
+								@*<!-- Doctor Widget -->
+								<div class="profile-widget">
+									<div class="doc-img">
+										<a href="javascript:void(0);"><img alt="" src="@routes.Assets.versioned("doccure/img/samandjill.jpg")" class="img-fluid"></a> 
+									 <!--  <img  alt="User Image" height="630" width="420" src="/assets/doccure/img/horses/storm.jpg"> -->
 									</div>
-									@*<h3 class="blog-title">Doccure – Making your clinic painless visit?</h3>
-									<div class="blog-info clearfix">
-										<div class="post-left">
-											<ul>
-												<li>
-													<div class="post-author">
-														<a href="doctor-profile.html"><img src="@routes.Assets.versioned("doccure/img/samandjill.jpg")" alt="Post Author"> <span>Dr. Darren Elder</span></a>
+									<div class="pro-content">*@
+									
+									<!-- Page Content -->
+							<div class="content">
+								<div class="container">
+								
+									@*<div class="row">*@
+										@*<div class="col-lg-12 col-md-14">*@
+											<div class="blog-view">
+												<div class="blog blog-single-post">
+													<div class="blog-image">
+														<a href="javascript:void(0);"><img alt="" src="@routes.Assets.versioned("doccure/img/samandjill.jpg")" class="img-fluid"></a>
 													</div>
-												</li>
-												<li><i class="far fa-calendar"></i>4 Dec 2019</li>
-												<li><i class="far fa-comments"></i>12 Comments</li>
-												<li><i class="fa fa-tags"></i>Health Tips</li>
-											</ul>
+					
+										@*<h3 class="title">
+											<a href="doctor-profile.html">@horse.Name</a> 
+											<i class="fas fa-check-circle verified"></i>
+										</h3>
+										<!-- 
+										<div class="rating">
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star filled"></i>
+											<span class="d-inline-block average-rating">(17)</span>
 										</div>
-									</div>*@
-									<div class="blog-content">
-										<p style = "text-align:justify;">Jill Bowden (pictured right) has owned and operated Twisdenwood Farm since 1998. The company was formed in Georgetown, Massachusetts. Upon changing locations in 2018 to Rowley, Massachusetts, Twisdenwood Farm's name was changed to Twisdenwood II. Jill has over 40 years of experience around horses. When she was a child she participated in Eventing and later in life opened her business in the Hunter/Jumper division of horse back riding. Jill's daughter Sam (pictured left) continuously helps her operate her business.</p>
-									<br> </br>
+										 -->
+										<ul class="available-info">
+										     <li>
+												 Size: @horse.Size
+											</li>
+										     <li>
+												 Level: @horse.Level
+											</li>
+											<li>
+												Color: @horse.Color
+											</li>
+											<li>
+												Gender: @horse.Gender
+											</li>
+											<li>
+												<i class="far fa-clock"></i> Available Now
+											</li>
+											<li>
+												<i class="far fa-money-bill-alt"></i> $@horse.Price 
+												<i class="fas fa-info-circle" data-toggle="tooltip" title="Get the best Horse lesson cheaper"></i>
+											</li>
+										</ul>
+										<div class="row row-sm">
+											<div class="col-6">
+												<a href="booking.html" class="btn book-btn">Lease Now</a>*@
+											</div>
+										</div>
 									</div>
 								</div>
-								
-								@*<div class="card blog-share clearfix">
-									<div class="card-header">
-										<h4 class="card-title">Share the post</h4>
-									</div>*@
-										</div>
-									</div>
-								</li>
-							</ul>
-							</div>
-							</div>
-							</div>
-						</div>
-						</div>
-						</div>
-						</div>
-					</div>
-								
-											<!-- Awards Details -->
+								<!-- /Doctor Widget -->
+						   
 										
-										@*</div>
-									</div>
-								</div>*@
-
-										
-		
-
-
+							</div>
+						</div>
+				   </div>
+				</div>
+			</section>
+			<!-- /Popular Section -->
+				
        	<!-- Bootstrap core JavaScript -->
  <!-- jQuery 
 		<script src="/assets/doccure/js/jquery.min.js"></script>
