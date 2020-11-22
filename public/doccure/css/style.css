@@ -93,7 +93,7 @@ html {
     height: 100%;
 }
 body {
-	background-color: #f8f9fa;
+	background-color: #fff;
 	color: #1b380f;
     font-family: "Poppins",sans-serif;
 	font-size: 0.9375rem;
@@ -221,7 +221,7 @@ input[type=password] {
 	width: 100%;
 }
 .table-striped > tbody > tr:nth-of-type(2n+1) {
-	background-color: #f8f9fa;
+	background-color: #fff;
 }
 .table.no-border > tbody > tr > td,
 .table > tbody > tr > th,
@@ -290,7 +290,7 @@ table.table td h2 span {
 	vertical-align: middle;
 }
 .table-hover tbody tr:hover {
-	background-color: #f7f7f7;
+	background-color: #fff;
 }
 .table-hover tbody tr:hover td {
 	color: #474648;
