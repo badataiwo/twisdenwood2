@@ -12,7 +12,7 @@ import org.mongodb.scala.Observable
 import org.mongodb.scala.Observer
 import org.mongodb.scala.MongoClient.DEFAULT_CODEC_REGISTRY
 import org.mongodb.scala.bson.codecs.Macros.createCodecProvider
-import org.mongodb.scala.model.Filters._
+import org.mongodb.scala.model.Filters.equal
 
 //import utils.config.CloudinaryCDN
 import model.db.mongo.DataHelpers.GenericObservable
@@ -20,35 +20,32 @@ import model.db.mongo.DataStore
 
 import play.api.Logger
 
-case class Horse(HorseID: String, Name: String, Size: String, Level: String, Color: String, Gender : String, Active: Boolean, ImgUrl: String, ForLease: Boolean, Price: Double)
+case class Trainer(TrainerID: String, Name: String, Active: Boolean, Username: String, Password: String, SkillLevel : String, Rating: Int)
 
-object Horse extends DataStore {
+object Trainer extends DataStore {
 
   val appLogger: Logger = Logger("application")
 
   //Required for using Case Classes
-  val codecRegistry = fromRegistries(fromProviders(classOf[Horse]), DEFAULT_CODEC_REGISTRY)
+  val codecRegistry = fromRegistries(fromProviders(classOf[Trainer]), DEFAULT_CODEC_REGISTRY)
 
   //Using Case Class to get a collection - Test
-  val coll: MongoCollection[Horse] = database.withCodecRegistry(codecRegistry).getCollection("Horse")
+  val coll: MongoCollection[Trainer] = database.withCodecRegistry(codecRegistry).getCollection("Trainer")
 
   //Using Document to get collection
-  val listings: MongoCollection[Document] = database.getCollection("Horse")
+  val listings: MongoCollection[Document] = database.getCollection("Trainer")
 
   // Insert a new record
-  def create(Name: String, Size: String, Level: String, Color: String, Gender : String, Active: Boolean, ImgUrl: String, ForLease: Boolean, Price: Double) = {
+  def create(Name: String, Active: Boolean, Username: String, Password: String, SkillLevel : String, Rating: Int) = {
 
     val doc: Document = Document(
       "HorseID" -> UUID.randomUUID().toString(),
       "Name" -> Name,
-      "Size" -> Size,
-      "Level" -> Level,
-      "Color" -> Color,
-      "Gender" -> Gender,
       "Active" -> Active,
-      "ImgUrl" -> ImgUrl,
-      "ForLease" -> ForLease,
-      "Price" -> Price)
+      "Username" -> Username,
+      "Password" -> Password,
+      "SkillLevel" -> SkillLevel,
+      "Rating" -> Rating)
 
     val observable: Observable[Completed] = listings.insertOne(doc)
 
@@ -61,43 +58,34 @@ object Horse extends DataStore {
   }
   
   //Update record
-  def update(newHorse: Horse) = {
+  def update(newTrainer: Trainer) = {
 
-    coll.findOneAndReplace(equal("HorseID", newHorse.HorseID), newHorse).results()
+    coll.findOneAndReplace(equal("TrainerID", newTrainer.TrainerID), newTrainer).results()
 
   }
   
   //Delete record
   def delete(recId: String) = {
-    coll.deleteOne(equal("HorseID", recId)).printHeadResult("Delete Result: ")
+    coll.deleteOne(equal("TrainerID", recId)).printHeadResult("Delete Result: ")
   }
   
   //Find Record by Id
   def findRecord(recId: String) = {
 
-    val rec = coll.find(equal("HorseID", recId)).first().headResult()
+    val rec = coll.find(equal("TrainerID", recId)).first().headResult()
     appLogger.info("Result  is: " + rec)
     rec
     /** Todo: What if findRecord returns no results. This should return an option **/
   }
   
-  def findActiveHorses() = {
-    //collection.find(and(eq("x", 1), lt("y", 3)))`
-  // val rec = coll.find(equal("Active", true)).results()
-    val rec = coll.find(and(equal("Active",true), equal("ForLease",false))).results()
+  def findActiveTrainers() = {
+     val rec = coll.find(equal("Active", true)).results()
      appLogger.info("Active Horses records result is: " + rec)
      
-     rec
-    
+     rec   
   }
   
-   def findHorsesForLease() = {
-     val rec = coll.find(equal("ForLease", true)).results()
-     appLogger.info("Horses For Lease records result is: " + rec)
-     
-     rec
-    
-  }
+  
   
   //Get all records
   def findAll() = { coll.find().results() }

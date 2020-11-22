@@ -5,7 +5,7 @@ import scala.util.Try
 import play.api._
 import play.api.mvc._
 import play.api.i18n._
-import model.db.collections.Horse
+import model.db.collections._
 
 
 /**
@@ -51,7 +51,8 @@ class HomeController @Inject() (cc: ControllerComponents) extends AbstractContro
         
         val horse = Horse.findRecord(horseid)
       appLogger.info(s"Debug Loading bookingtrainerstep() ${horseid}")
-      Ok(views.html.bookingtrainer("Booking", horse))
+      val trainers = Trainer.findAll().toList
+      Ok(views.html.bookingtrainer("Booking", horse, trainers))
     }
   
   def leasing() = Action { implicit request: Request[AnyContent] =>
