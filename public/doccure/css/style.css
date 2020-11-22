@@ -6038,9 +6038,10 @@ html.menu-opened body {
 .blog-image > a,
 .blog-image img {
 	display: block;
-	position: static;
+	position: relative;
 	width: 100%;
-	height: auto;
+	height: 430px;
+	vertical-align:middle;
 }
 .blog-image img {
     -webkit-transform: translateZ(0);
@@ -6076,7 +6077,8 @@ html.menu-opened body {
 .blog-content p {
 	color: #0064600;
 	font-size: 14px;
-	margin: 0 0 30px;
+	margin: 0 0 10px;
+	
 }
 .read-more {
     display: inline-block;
@@ -6397,7 +6399,7 @@ html.menu-opened body {
 }
 .about-author-img {
 	background-color: #fff;
-	height: 100px;
+	height: 10px;
 	overflow: hidden;
 	position: absolute;
 	width: 100px;
