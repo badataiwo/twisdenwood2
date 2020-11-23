@@ -20,7 +20,7 @@ import model.db.mongo.DataStore
 
 import play.api.Logger
 
-case class Trainer(TrainerID: String, Name: String, Active: Boolean, Username: String, Password: String, SkillLevel : String, Rating: Int)
+case class Trainer(TrainerID: String, Name: String, Active: Boolean, Username: String, Password: String, SkillLevel : String, Rating: Int, img: String)
 
 object Trainer extends DataStore {
 
@@ -36,7 +36,7 @@ object Trainer extends DataStore {
   val listings: MongoCollection[Document] = database.getCollection("Trainer")
 
   // Insert a new record
-  def create(Name: String, Active: Boolean, Username: String, Password: String, SkillLevel : String, Rating: Int) = {
+  def create(Name: String, Active: Boolean, Username: String, Password: String, SkillLevel : String, Rating: Int, img: String) = {
 
     val doc: Document = Document(
       "HorseID" -> UUID.randomUUID().toString(),
@@ -45,7 +45,8 @@ object Trainer extends DataStore {
       "Username" -> Username,
       "Password" -> Password,
       "SkillLevel" -> SkillLevel,
-      "Rating" -> Rating)
+      "Rating" -> Rating,
+      "img" -> img)
 
     val observable: Observable[Completed] = listings.insertOne(doc)
 
