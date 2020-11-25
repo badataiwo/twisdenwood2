@@ -80,10 +80,10 @@
     <tr>
       <td valign="top"><label for="FName">Full Name</label>
         <br />
-<input type="text" name="FName" id="FName" /></td>
+<input type="text" name="FName" id="FName" required="true" /></td>
       <td valign="top"><label for="Email">Email<br />
       </label>
-      <input type="text" name="Email" id="Email" /></td>
+      <input type="text" name="Email" id="Email" required="true" /></td>
       <td valign="top">&nbsp;</td>
     </tr>
     <tr>
@@ -99,21 +99,23 @@
     <tr>
       <td valign="top"><p>
      
-       	  
-      	@for(incDay <- 0 to 6) {
+       	       	  	
+           @for(incDay <- 0 to 6) {
       	  @{
-      	 	
-      	  	val today={months(calendar.get(Calendar.MONTH)) +"-"+ {day+incDay}.toString() +"-"+ year.toString()}
+      	  	 val today={months(calendar.get(Calendar.MONTH)) +"-"+ {day+incDay}.toString() +"-"+ year.toString()}
            <label>
           <input type="radio" name="DayToBook" value="{today}" id="DayToBook_{incDay}" />
-           {today}</label>
+          {today}</label>
         <br />
           }
         }
+       
+          
+        
       
       
       </p></td>
-      <td valign="top"><select name="TimeToSelect" id="TimeToSelect">
+      <td valign="top"><select name="TimeToSelect" required="true" id="TimeToSelect">
           <option value="09">09:00AM</option>
           <option value="10">10:00AM</option>
           <option value="11">11:00AM</option>
