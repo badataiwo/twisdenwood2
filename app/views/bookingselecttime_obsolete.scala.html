@@ -1,0 +1,243 @@
+@(topic: String, horse : model.db.collections.Horse, trainer : model.db.collections.Trainer)(implicit messages: Messages)
+
+@main(topic) {  
+
+	
+	
+}{
+ 
+			<!-- Page Content -->
+			<div class="content">
+				<div class="container">
+				
+					<div class="row">
+						<div class="col-12">
+						
+							<div class="card">
+								<div class="card-body">
+									<div class="booking-doc-info">
+										<a href="doctor-profile.html" class="booking-doc-img">
+											<img src="@routes.Assets.versioned(s"doccure/img/trainers/${trainer.img}")" alt="User Image">
+										</a>
+										<div class="booking-info">
+											<h4><a href="doctor-profile.html">Trainer: @trainer.Name</a></h4>
+											<div class="rating">
+											@for(ix <- 1 to trainer.Rating-1) {
+												<i class="fas fa-star filled"></i>
+												}
+												<i class="fas fa-star"></i>
+												<span class="d-inline-block average-rating">     </span>
+											</div>
+											<!-- <p class="text-muted mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</p>  -->
+										</div>
+										<div class="booking-info">
+										<a href="doctor-profile.html" class="booking-doc-img">
+											<img src="@routes.Assets.versioned(s"doccure/img/horses/${horse.ImgUrl}")" alt="User Image">
+										</a>
+										<div >
+											<h4><a href="doctor-profile.html">Horse: @horse.Name</a></h4>
+											<p class="text-muted mb-0"><i class="fas fa-map-marker-alt"></i> Level: @horse.Level</p>
+										</div>
+									   </div>
+									</div>
+									
+								</div>
+							</div>
+						   
+						 
+							<div class="row">
+								<div class="col-12 col-sm-4 col-md-6">
+									<h4 class="mb-1">
+									<script language="javascript">
+										 var d = new Date();
+										 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+						 					document.write(months[d.getMonth()] + " " + d.getDate() + " "+ d.getFullYear());
+ 										</script>
+ 									</h4>
+
+									<p class="text-muted">  Select an available time (the gray sections) to secure your time.</p>
+									<p>Test HourOfDay: @{val now = java.util.Calendar.getInstance()
+												val currentHour=now.get(java.util.Calendar.HOUR_OF_DAY)
+												currentHour
+												}
+
+								</div>
+								<div class="col-12 col-sm-8 col-md-6 text-sm-right">
+									<div class="bookingrange btn btn-white btn-sm mb-3">
+										<i class="far fa-calendar-alt mr-2"></i>
+										<span></span>
+										<i class="fas fa-chevron-down ml-2"></i>
+									</div>
+								</div>
+                            </div>
+							<!-- Schedule Widget -->
+							<div class="card booking-schedule schedule-widget">
+							
+								<!-- Schedule Header -->
+								<div class="schedule-header">
+									<div class="row">
+										<div class="col-md-12">
+										
+											<!-- Day Slot -->
+											<div class="day-slot">
+												<ul>
+													<li class="left-arrow">
+														<a href="">
+															<i class="fa fa-chevron-left"></i>
+														</a>
+													</li>
+													<li>
+														<span>Mon</span>
+														<span class="slot-date">07 Dec<small class="slot-year"><script language="javascript">document.write(d.getFullYear())</script></small></span>
+													</li>
+													<li>
+														<span>Tue</span>
+														<span class="slot-date">08 Dec <small class="slot-year"><script language="javascript">document.write(d.getFullYear())</script></small></span>
+													</li>
+													<li>
+														<span>Wed</span>
+														<span class="slot-date">09 Dec <small class="slot-year"><script language="javascript">document.write(d.getFullYear())</script></small></span>
+													</li>
+													<li>
+														<span>Thu</span>
+														<span class="slot-date">10 Dec <small class="slot-year"><script language="javascript">document.write(d.getFullYear())</script></small></span>
+													</li>
+													<li>
+														<span>Fri</span>
+														<span class="slot-date">11 Dec <small class="slot-year"><script language="javascript">document.write(d.getFullYear())</script></small></span>
+													</li>
+													<li>
+														<span>Sat</span>
+														<span class="slot-date">12 Dec <small class="slot-year"><script language="javascript">document.write(d.getFullYear())</script></small></span>
+													</li>
+													<li>
+														<span>Sun</span>
+														<span class="slot-date">13 Dec <small class="slot-year"><script language="javascript">document.write(d.getFullYear())</script></small></span>
+													</li>
+													<li class="right-arrow">
+														<a href="">
+															<i class="fa fa-chevron-right"></i>
+														</a>
+													</li>
+												</ul>
+											</div>
+											<!-- /Day Slot -->
+											
+										</div>
+									</div>
+								</div>
+								<!-- /Schedule Header -->
+								
+								<!-- Schedule Content -->
+								<div class="schedule-cont">
+									<div class="row">
+										<div class="col-md-12">
+										
+											<!-- Time Slot -->
+											<div class="time-slot">
+												<ul class="clearfix">
+													<li>
+														<a class="timing" href="#">
+															<span>9:00</span> <span>AM</span>
+														</a>
+														<a class="timing selected" href="#">
+															<span>10:00</span> <span>AM</span>
+														</a>
+														<a class="timing" href="#">
+															<span>11:00</span> <span>AM</span>
+														</a>
+													</li>
+													<li>
+														<a class="timing" href="#">
+															<span>9:00</span> <span>AM</span>
+														</a>
+														<a class="timing" href="#">
+															<span>10:00</span> <span>AM</span>
+														</a>
+														<a class="timing" href="#">
+															<span>11:00</span> <span>AM</span>
+														</a>
+													</li>
+													<li>
+														<a class="timing" href="#">
+															<span>9:00</span> <span>AM</span>
+														</a>
+														<a class="timing" href="#">
+															<span>10:00</span> <span>AM</span>
+														</a>
+														<a class="timing selected" href="/finalbookingstep?datetime="11:10_Nov-10-2020">
+															<span>11:00</span> <span>AM</span>
+														</a>
+													</li>
+													<li>
+														<a class="timing" href="#">
+															<span>9:00</span> <span>AM</span>
+														</a>
+														<a class="timing" href="#">
+															<span>10:00</span> <span>AM</span>
+														</a>
+														<a class="timing" href="#">
+															<span>11:00</span> <span>AM</span>
+														</a>
+													</li>
+													<li>
+														<a class="timing" href="#">
+															<span>9:00</span> <span>AM</span>
+														</a>
+														<a class="timing" href="#">
+															<span>10:00</span> <span>AM</span>
+														</a>
+														<a class="timing" href="#">
+															<span>11:00</span> <span>AM</span>
+														</a>
+													</li>
+													<li>
+														<a class="timing" href="#">
+															<span>9:00</span> <span>AM</span>
+														</a>
+														<a class="timing" href="#">
+															<span>10:00</span> <span>AM</span>
+														</a>
+														<a class="timing" href="#">
+															<span>11:00</span> <span>AM</span>
+														</a>
+													</li>
+													<li>
+														<a class="timing" href="#">
+															<span>9:00</span> <span>AM</span>
+														</a>
+														<a class="timing" href="#">
+															<span>10:00</span> <span>AM</span>
+														</a>
+														<a class="timing" href="#">
+															<span>11:00</span> <span>AM</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+											<!-- /Time Slot -->
+											
+										</div>
+									</div>
+								</div>
+								<!-- /Schedule Content -->
+								
+							</div>
+							<!-- /Schedule Widget -->
+							
+							<!-- Submit Section 
+							<div class="submit-section proceed-btn text-right">
+								<a href="checkout.html" class="btn btn-primary submit-btn">Proceed to Pay</a>
+							</div>
+							-->
+							<!-- /Submit Section -->
+							
+						</div>
+					</div>
+				</div>
+
+			</div>		
+			<!-- /Page Content -->
+
+  
+}
