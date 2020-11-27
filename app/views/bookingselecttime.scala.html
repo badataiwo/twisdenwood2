@@ -66,11 +66,8 @@
  									</h4>
 
 									<p class="text-muted">  Select an available time (the gray sections) to secure your time.</p>
-									<p>Test HourOfDay : @{val now = java.util.Calendar.getInstance()
-												val currentHour=now.get(java.util.Calendar.HOUR_OF_DAY)
-												currentHour
-												}
-	<form id="form1" name="form1" method="get" action="/finalbooking?horseid=H001&trainerid=T001">
+									<p>
+	<form id="form1" name="form1" method="get" action="/finalbooking">
   <table width="699" border="0">
     <tr>
       <td width="200" valign="top">&nbsp;</td>
@@ -78,13 +75,15 @@
       <td width="281" valign="top">&nbsp;</td>
     </tr>
     <tr>
-      <td valign="top"><label for="FName">Full Name</label>
+      <td valign="top"><label for="FName">First Name</label>
         <br />
 <input type="text" name="FName" id="FName" required="true" /></td>
+      <td valign="top"><label for="Last Name">Last Name<br />
+      </label>
+      <input type="text" name="LName" id="LName" required="true" /></td>
       <td valign="top"><label for="Email">Email<br />
       </label>
       <input type="text" name="Email" id="Email" required="true" /></td>
-      <td valign="top">&nbsp;</td>
     </tr>
     <tr>
       <td valign="top">&nbsp;</td>
@@ -98,32 +97,23 @@
     </tr>
     <tr>
       <td valign="top"><p>
-     
-       	       	  	
-           @for(incDay <- 0 to 6) {
-      	  @{
-      	  	 val today={months(calendar.get(Calendar.MONTH)) +"-"+ {day+incDay}.toString() +"-"+ year.toString()}
-           <label>
-          <input type="radio" name="DayToBook" value="{today}" id="DayToBook_{incDay}" />
-          {today}</label>
-        <br />
-          }
-        }
-       
+      <select name="DayToBook" required="true" id="DayToBook">
+           @for(incDay <- 0 to 10) {
+          <option selected ="@{if(incDay==1) "true" else "false" }"  value="@{months(calendar.get(Calendar.MONTH)) +"-"+ {day+incDay}.toString() +"-"+ year.toString()}">
+          @{months(calendar.get(Calendar.MONTH)) +"-"+ {day+incDay}.toString() +"-"+ year.toString()} </option>
           
-        
-      
-      
+        }
+       </select>
       </p></td>
       <td valign="top"><select name="TimeToSelect" required="true" id="TimeToSelect">
-          <option value="09">09:00AM</option>
-          <option value="10">10:00AM</option>
-          <option value="11">11:00AM</option>
-          <option value="12">12:00PM</option>
-          <option value="13">1:00PM</option>
-          <option value="14">2:00PM</option>
-          <option value="15">3:00PM</option>
-          <option value="16">4:00PM</option>
+          <option value="09:00AM">09:00AM</option>
+          <option value="10:00AM">10:00AM</option>
+          <option value="11:00AM">11:00AM</option>
+          <option value="12:00AM">12:00PM</option>
+          <option value="13:00AM">01:00PM</option>
+          <option value="02:00PM">02:00PM</option>
+          <option value="03:00PM">03:00PM</option>
+          <option value="04:00PM">04:00PM</option>
       </select></td>
       <td valign="bottom"><input type="submit" name="SubButton" id="SubButton" value="Submit" /></td>
     </tr>
