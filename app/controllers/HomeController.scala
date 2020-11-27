@@ -91,6 +91,9 @@ class HomeController @Inject() (cc: ControllerComponents) extends AbstractContro
       case "services" => Ok(views.html.services(page.capitalize))
       case "login" => Ok(views.html.login(page.capitalize))
        case "register" => Ok(views.html.register(page.capitalize))
+       
+        case "adminlogin" => Ok(views.html.adminlogin(page.capitalize))
+        case "edit" => Ok(views.html.edit(page.capitalize))
       case _          => Ok(views.html.index("Welcome"))
     }
   }
