@@ -1,0 +1,25 @@
+@(topic: String, msg: String)(implicit messages: Messages)
+
+@main(topic) {  
+
+	
+	
+}{
+ 
+<!-- Page Content -->
+			<div class="content">
+				<div class="container-fluid">
+					<h3>@{msg}</h3>
+				  <p><button onclick="goBack()">Go Back</button>
+
+	<script>
+function goBack() {
+  window.history.back();
+}
+</script></p>
+				</div>
+			</div>		
+			<!-- /Page Content -->
+
+  
+}
