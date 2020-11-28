@@ -8,6 +8,7 @@ GET   /               controllers.HomeController.index
 GET	  /booking		 controllers.BookingController.booking()
 GET	  /bookingtrainer		 controllers.BookingController.bookingtrainerstep(horseid: String)
 GET	  /bookingselecttime	 controllers.BookingController.bookingSelectime(horseid: String, trainerid: String)
+GET	  /bookingconfirm			controllers.BookingController.bookingConfirm(FName: String, LName: String, Email: String, DayToBook:String,TimeToSelect: String,SubButton: String, horseid : String, trainerid: String)
 GET   /forlease		controllers.HomeController.leasing()
 GET   /:page          controllers.HomeController.loadPage(page)
 
