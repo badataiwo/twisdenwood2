@@ -1,6 +1,8 @@
 @import java.util._
 @import java.text.SimpleDateFormat
 @import java.util.Date
+@import java.time.LocalDate
+
 @(topic: String, horse : model.db.collections.Horse, trainer : model.db.collections.Trainer)(implicit messages: Messages)
 @calendar=@{java.util.Calendar.getInstance()}
 @day=@{ val now = java.util.Calendar.getInstance()
@@ -8,6 +10,7 @@
 	 }
 @year=@{  calendar.get(Calendar.YEAR) }
 @months=@{ Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")}
+@localDate=@{LocalDate.now()}
 
 @main(topic) {  
 
@@ -96,11 +99,12 @@
       <td valign="top">&nbsp;</td>
     </tr>
     <tr>
+    
       <td valign="top"><p>
       <select name="DayToBook" required="true" id="DayToBook">
            @for(incDay <- 0 to 10) {
-          <option selected ="@{if(incDay==1) "true" else "false" }"  value="@{months(calendar.get(Calendar.MONTH)) +"-"+ {day+incDay}.toString() +"-"+ year.toString()}">
-          @{months(calendar.get(Calendar.MONTH)) +"-"+ {day+incDay}.toString() +"-"+ year.toString()}</option>
+          <option selected ="@{if(incDay==1) "true" else "false" }"  value="@{localDate.plusDays(incDay)}">
+          @{localDate.plusDays(incDay)}</option>
           
         }
        </select>
