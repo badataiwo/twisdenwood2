@@ -34,26 +34,6 @@ class HomeController @Inject() (cc: ControllerComponents) extends AbstractContro
     Ok(views.html.index("Welcome"))
   }
 
-    def booking() = Action { implicit request: Request[AnyContent] =>
-     // val horses = Horse.findAll().toList
-      val horses = Horse.findActiveHorses().toList
-      appLogger.info("Debug Loading booking()")
-      Ok(views.html.booking("Booking", horses))
-    }
-    
-    def bookingtrainerstep(horseid :  String) = Action { implicit request: Request[AnyContent] =>
-     // val horses = Horse.findAll().toList
-       val lst = request.queryString.toList
-       val keys = request.queryString.keys
-       
-        appLogger.info(s"Debug Loading QueryString list: ${lst}")
-       appLogger.info(s"Debug Loading QueryString keys: ${keys}")
-        
-        val horse = Horse.findRecord(horseid)
-      appLogger.info(s"Debug Loading bookingtrainerstep() ${horseid}")
-      val trainers = Trainer.findAll().toList
-      Ok(views.html.bookingtrainer("Booking", horse, trainers))
-    }
   
   def leasing() = Action { implicit request: Request[AnyContent] =>
      // val horses = Horse.findAll().toList
@@ -61,9 +41,6 @@ class HomeController @Inject() (cc: ControllerComponents) extends AbstractContro
       appLogger.info("Debug leasing()")
       Ok(views.html.forlease("Horses For Lease", horses))
     }
-  
-  
-  
   
   
     
@@ -82,15 +59,14 @@ class HomeController @Inject() (cc: ControllerComponents) extends AbstractContro
     appLogger.debug(s"Loading page: $page")
     
     page match {
-    //  case "booking"    => Ok(views.html.booking(page.capitalize))
       case "about"      => Ok(views.html.about(page.capitalize))
-     // case "products" => Ok(views.html.products(page.capitalize))
-    //  case "forlease" => Ok(views.html.forlease(page.capitalize))
       case "showing" => Ok(views.html.showing(page.capitalize))
       case "contactUs" => Ok(views.html.contactUs(page.capitalize))
       case "services" => Ok(views.html.services(page.capitalize))
       case "login" => Ok(views.html.login(page.capitalize))
-       case "register" => Ok(views.html.register(page.capitalize))
+      case "register" => Ok(views.html.register(page.capitalize))
+      case "adminlogin" => Ok(views.html.adminlogin(page.capitalize))
+      case "edit" => Ok(views.html.edit(page.capitalize))
       case _          => Ok(views.html.index("Welcome"))
     }
   }

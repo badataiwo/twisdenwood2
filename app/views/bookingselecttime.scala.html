@@ -1,0 +1,144 @@
+@import java.util._
+@import java.text.SimpleDateFormat
+@import java.util.Date
+@import java.time.LocalDate
+
+@(topic: String, horse : model.db.collections.Horse, trainer : model.db.collections.Trainer)(implicit messages: Messages)
+@calendar=@{java.util.Calendar.getInstance()}
+@day=@{ val now = java.util.Calendar.getInstance()
+	   now.get(Calendar.DAY_OF_MONTH)
+	 }
+@year=@{  calendar.get(Calendar.YEAR) }
+@months=@{ Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")}
+@localDate=@{LocalDate.now()}
+
+@main(topic) {  
+
+	
+	
+}{
+ 
+			<!-- Page Content -->
+			<div class="content">
+				<div class="container">
+				
+					<div class="row">
+						<div class="col-12">
+						
+							<div class="card">
+								<div class="card-body">
+									<div class="booking-doc-info">
+										<a href="doctor-profile.html" class="booking-doc-img">
+											<img src="@routes.Assets.versioned(s"doccure/img/trainers/${trainer.img}")" alt="User Image">
+										</a>
+										<div class="booking-info">
+											<h4><a href="doctor-profile.html">Trainer: @trainer.Name</a></h4>
+											<div class="rating">
+											@for(ix <- 1 to trainer.Rating-1) {
+												<i class="fas fa-star filled"></i>
+												}
+												<i class="fas fa-star"></i>
+												<span class="d-inline-block average-rating">     </span>
+											</div>
+											<!-- <p class="text-muted mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</p>  -->
+										</div>
+										<div class="booking-info">
+										<a href="doctor-profile.html" class="booking-doc-img">
+											<img src="@routes.Assets.versioned(s"doccure/img/horses/${horse.ImgUrl}")" alt="User Image">
+										</a>
+										<div >
+											<h4><a href="doctor-profile.html">Horse: @horse.Name</a></h4>
+											<p class="text-muted mb-0"><i class="fas fa-map-marker-alt"></i> Level: @horse.Level</p>
+										</div>
+									   </div>
+									</div>
+									
+								</div>
+							</div>
+						   
+						 
+							<div class="row">
+								<div class="col-12 col-sm-4 col-md-6">
+									<h4 class="mb-1">
+									<!--  -->
+									<script language="javascript">
+										 var d = new Date();
+										 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+						 					document.write(months[d.getMonth()] + " " + d.getDate() + " "+ d.getFullYear());
+ 										</script>
+ 									</h4>
+
+									<p class="text-muted">  Select an available time from the drop down lists to secure your time.</p>
+									<p>
+	<form id="form1" name="form1" method="get" action="/bookingconfirm">
+  <table width="699" border="0">
+    <tr>
+      <td width="200" valign="top">&nbsp;</td>
+      <td width="204" valign="top">&nbsp;</td>
+      <td width="281" valign="top">&nbsp;</td>
+    </tr>
+    <tr>
+      <td valign="top"><label for="FName">First Name</label>
+        <br />
+<input type="text" name="FName" id="FName" required="true" /></td>
+      <td valign="top"><label for="Last Name">Last Name<br />
+      </label>
+      <input type="text" name="LName" id="LName" required="true" /></td>
+      <td valign="top"><label for="Email">Email
+      </label><br />
+      <input type="text" name="Email" id="Email" required="true" /></td>
+    </tr>
+    <tr>
+      <td valign="top">&nbsp;</td>
+      <td valign="top">&nbsp;</td>
+      <td valign="top">&nbsp;</td>
+    </tr>
+    <tr>
+      <td valign="top">Select the day to book</td>
+      <td valign="top"><label for="TimeToSelect">Time for your booking</label></td>
+      <td valign="top">&nbsp;</td>
+    </tr>
+    <tr>
+    
+      <td valign="top"><p>
+      <select name="DayToBook" required="true" id="DayToBook">
+           @for(incDay <- 0 to 10) {
+          <option selected ="@{if(incDay==1) "true" else "false" }"  value="@{localDate.plusDays(incDay)}">
+          @{localDate.plusDays(incDay)}</option>
+          
+        }
+       </select>
+      </p></td>
+      <td valign="top"><select name="TimeToSelect" required="true" id="TimeToSelect">
+          <option value="09:00AM">09:00AM</option>
+          <option value="10:00AM">10:00AM</option>
+          <option value="11:00AM">11:00AM</option>
+          <option value="12:00PM">12:00PM</option>
+          <option value="01:00PM">01:00PM</option>
+          <option value="02:00PM">02:00PM</option>
+          <option value="03:00PM">03:00PM</option>
+          <option value="04:00PM">04:00PM</option>
+      </select></td>
+      <td valign="bottom"><input type="submit" name="SubButton" id="SubButton" value="Submit" /></td>
+    </tr>
+    <tr>
+      <td valign="top"><input name="horseid" type="hidden" id="horseid" value="@{horse.HorseID}" /></td>
+      <td valign="top"><input name="trainerid" type="hidden" id="trainerid" value="@{trainer.TrainerID}" /></td>
+      <td valign="top">&nbsp;</td>
+    </tr>
+  </table>
+</form>
+								</div>
+								
+                            </div>
+							
+							
+						</div>
+					</div>
+				</div>
+
+			</div>		
+			<!-- /Page Content -->
+
+  
+}
