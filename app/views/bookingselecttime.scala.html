@@ -5,8 +5,7 @@
 
 @(topic: String, horse : model.db.collections.Horse, trainer : model.db.collections.Trainer)(implicit messages: Messages)
 @calendar=@{java.util.Calendar.getInstance()}
-@day=@{ val now = java.util.Calendar.getInstance()
-	   now.get(Calendar.DAY_OF_MONTH)
+@day=@{ Array("Sun")
 	 }
 @year=@{  calendar.get(Calendar.YEAR) }
 @months=@{ Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")}
@@ -103,8 +102,8 @@
       <td valign="top"><p>
       <select name="DayToBook" required="true" id="DayToBook">
            @for(incDay <- 0 to 10) {
-          <option selected ="@{if(incDay==1) "true" else "false" }"  value="@{localDate.plusDays(incDay)}">
-          @{localDate.plusDays(incDay)}</option>
+          <option selected ="@{if(incDay==1) "true" else "false" }"  value="@{localDate.plusDays(incDay).getDayOfWeek().toString +","+ localDate.plusDays(incDay)}">
+          @{localDate.plusDays(incDay).getDayOfWeek().toString +","+ localDate.plusDays(incDay)}</option>
           
         }
        </select>
