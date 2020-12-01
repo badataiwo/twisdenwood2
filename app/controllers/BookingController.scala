@@ -8,6 +8,7 @@ import play.api.i18n._
 import model.db.collections._
 
 
+
 /**
  * This controller creates an `Action` to handle HTTP requests to the
  * application's home page.
@@ -64,19 +65,14 @@ class BookingController @Inject() (cc: ControllerComponents) extends AbstractCon
       appLogger.info(s"Debug Loading bookingConfirm() ${horseid}")
      
         
-      //  val lessonBooking = LessonBooking.findBookingBasedOnCustomer(FName, LName,DayToBook)
-       // if (lessonBooking.size >0) {
-       //    Ok(views.html.bookingerrmsg("Booking","Sorry, you already have a Lesson scheduled on " + DayToBook))
+        val lessonBooking = LessonBooking.findBookingBasedOnDateTime(DayToBook, TimeToSelect)
+        if (lessonBooking !=null && lessonBooking.size >0) {
+           Ok(views.html.bookingerrmsg("<br>Booking","Sorry, There is a Lesson scheduled on " + DayToBook + " " + TimeToSelect))
         
-        //}else{
+        }else{
           LessonBooking.create(horseid, trainerid, FName, LName, Email, DayToBook, TimeToSelect, true)
           Ok(views.html.bookingconfirm("Booking", FName, DayToBook, TimeToSelect))
-        //}
-     
-      
-        
-       
-       
+        }
       
     }
     
