@@ -67,7 +67,7 @@ class BookingController @Inject() (cc: ControllerComponents) extends AbstractCon
         
         val lessonBooking = LessonBooking.findBookingBasedOnDateTime(DayToBook, TimeToSelect)
         if (lessonBooking !=null && lessonBooking.size >0) {
-           Ok(views.html.bookingerrmsg("Booking","Sorry, There is a Lesson scheduled on " + DayToBook + " " + TimeToSelect))
+           Ok(views.html.bookingerrmsg("Booking","Sorry, there is a lesson scheduled on " + DayToBook + " " + TimeToSelect))
         
         }else{
           LessonBooking.create(horseid, trainerid, FName, LName, Email, DayToBook, TimeToSelect, true)
