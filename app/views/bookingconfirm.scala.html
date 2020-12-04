@@ -7,7 +7,7 @@
 }{
  
 <!-- Page Content -->
-			<div class="content">
+			<!--  <div class="content">
 				<div class="container-fluid">
 					<h3><p>Thank you for booking Your Lesson</p></h3>@{FName}
 					<p>You book for @{DateBooked} at @{TimeOfDay}
@@ -15,8 +15,36 @@
 
 				</div>
 
-			</div>		
-			<!-- /Page Content -->
+			</div>-->
+	<!-- /Page Content -->
+			<div class="content success-page-cont">
+				<div class="container-fluid">
+				
+					<div class="row justify-content-center">
+						<div class="col-lg-6">
+			
+			<!-- Success Card -->
+							<div class="card success-card">
+								<div class="card-body">
+									<div class="success-cont">
+										<i class="fas fa-check"></i>
+										<h3>Dear @{FName}</h3>
+										<h3>Appointment booked Successfully!</h3>
+										<p>Appointment booked for <strong>@{DateBooked}</strong> at <strong>@{TimeOfDay}</strong></p>
+										@*<a href="invoice-view.html" class="btn btn-primary view-inv-btn">View Invoice</a>*@
+										
+										</div>
+											</div>
+											
+										</div>
+									</div>	
+										
+									</div>
+								</div>
+							
+							</div>
+							<!-- /Success Card -->	
+			
 
   
 }
