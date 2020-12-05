@@ -36,7 +36,7 @@ object Client extends DataStore {
   val listings: MongoCollection[Document] = database.getCollection("Client")
 
   // Insert a new record
-  def create(ClientID: String, FirstName: String, LastName: String, Username: String, Password : String) = {
+  def create(FirstName: String, LastName: String, Username: String, Password : String) = {
 
     val doc: Document = Document(
       "ClientID" -> UUID.randomUUID().toString(),
@@ -65,13 +65,13 @@ object Client extends DataStore {
   
   //Delete record
   def delete(recId: String) = {
-    coll.deleteOne(equal("HorseID", recId)).printHeadResult("Delete Result: ")
+    coll.deleteOne(equal("ClientID", recId)).printHeadResult("Delete Result: ")
   }
   
-  //Find Record by Id
-  def findRecord(recId: String) = {
+  //Find Record by Username
+  def findRecord(Username: String) = {
 
-    val rec = coll.find(equal("HorseID", recId)).first().headResult()
+    val rec = coll.find(equal("Username", Username)).first().headResult()
     appLogger.info("Result  is: " + rec)
     rec
     /** Todo: What if findRecord returns no results. This should return an option **/

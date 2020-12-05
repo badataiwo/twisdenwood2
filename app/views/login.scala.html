@@ -1,6 +1,8 @@
-@(topic: String)(implicit messages: Messages)
+@(LoginForm: Form[forms.LoginForm.Data], mode: String, picMap: Map[String, String], config: play.api.Configuration)(implicit request: RequestHeader, messages: Messages)
+@import b4.vertical.fieldConstructor
+@implicitFieldConstructor = @{ b4.vertical.fieldConstructor() }
 
-@main(topic) {  
+@main("Login") {  
 
 	
 	
@@ -18,7 +20,7 @@
 					<div class="row">
 						<div class="col-md-8 offset-md-2">
 		
-							
+							@b4.vertical.formCSRF(routes.ClientController.loginTry(), Symbol("id") -> "LoginForm") { implicit vfc =>
 							<!-- Login Tab Content -->
 							<div class="account-content">
 								<div class="row align-items-center justify-content-center">
@@ -31,13 +33,21 @@
 										</div>
 										<form action="index.html">
 											<div class="form-group form-focus">
+											@b4.text(LoginForm("Username"), Symbol("_label") -> "Username", if (LoginForm("Username").value.isEmpty) {Symbol("_success") -> false} else {Symbol("_success") -> true})
+											<!--  
 												<input type="text" class="form-control floating">
 												<label class="focus-label">User Name</label>
+												-->
 											</div>
+											</br>
 											<div class="form-group form-focus">
+											@b4.text(LoginForm("Password"), Symbol("_label") -> "Password",  if (LoginForm("Password").value.isEmpty) {Symbol("_success") -> false} else {Symbol("_success") -> true} )
+											<!-- 
 												<input type="password" class="form-control floating">
 												<label class="focus-label">Password</label>
+												 -->
 											</div>
+											</br>
 											<div class="text-right">
 												<a class="forgot-link" href="forgot-password.html" style="color:#009d00;">Forgot Password?</a>
 											</div>
@@ -72,7 +82,7 @@
 
 											
 }
-
+}
 										
 					
   

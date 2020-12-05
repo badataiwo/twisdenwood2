@@ -27,6 +27,8 @@
   <logger name="play" level="INFO" />
   <logger name="application" level="DEBUG" />
   <logger name="data-helper" level="DEBUG" />
+  <logger name="Client-controller" level="DEBUG" />
+  
 
   <root level="WARN">
     <!--<appender-ref ref="ASYNCFILE" />-->

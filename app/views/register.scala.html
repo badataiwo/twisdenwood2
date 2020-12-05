@@ -1,6 +1,8 @@
-@(topic: String)(implicit messages: Messages)
+@(RegisterForm: Form[forms.RegisterForm.Data], mode: String, picMap: Map[String, String], config: play.api.Configuration)(implicit request: RequestHeader, messages: Messages)
+@import b4.vertical.fieldConstructor
+@implicitFieldConstructor = @{ b4.vertical.fieldConstructor() }
 
-@main(topic) {  
+@main("Register") {  
 
 	
 	
@@ -10,7 +12,7 @@
 					
 					<div class="row">
 						<div class="col-md-8 offset-md-2">
-								
+								@b4.vertical.formCSRF(routes.ClientController.processPage(), Symbol("id") -> "RegisterForm") { implicit vfc =>
 							<!-- Register Content -->
 							<div class="account-content">
 								<div class="row align-items-center justify-content-center">
@@ -25,21 +27,38 @@
 										<!-- Register Form -->
 										<form action="doctor-dashboard.html">
 											<div class="form-group form-focus">
+											@b4.text(RegisterForm("FirstName"), Symbol("_label") -> "First Name", if (RegisterForm("FirstName").value.isEmpty) {Symbol("_success") -> false} else {Symbol("_success") -> true})
+											<!-- 
 												<input type="text" class="form-control floating">
 												<label class="focus-label">First Name</label>
+												 -->
 											</div>
+											<br/>
 											<div class="form-group form-focus">
+											@b4.text(RegisterForm("LastName"), Symbol("_label") -> "Last Name", if (RegisterForm("LastName").value.isEmpty) {Symbol("_success") -> false} else {Symbol("_success") -> true})
+											<!--  
 												<input type="text" class="form-control floating">
 												<label class="focus-label">Last Name</label>
+												-->
 											</div>
+											<br/>
 											<div class="form-group form-focus">
+											@b4.text(RegisterForm("Username"), Symbol("_label") -> "Username", if (RegisterForm("Username").value.isEmpty) {Symbol("_success") -> false} else {Symbol("_success") -> true})
+											<!--  
 												<input type="text" class="form-control floating">
 												<label class="focus-label">Username</label>
+											-->
 											</div>
+											<br/>
 											<div class="form-group form-focus">
+											@b4.text(RegisterForm("Password"), Symbol("_label") -> "Password", if (RegisterForm("Password").value.isEmpty) {Symbol("_success") -> false} else {Symbol("_success") -> true})
+											<!--  
 												<input type="password" class="form-control floating">
 												<label class="focus-label">Create Password</label>
+												
+											-->
 											</div>
+											<br/>
 											<div class="text-right">
 												<a class="forgot-link" href="\login" style="color:#009d00;">Already have an account?</a>
 											</div>
@@ -73,4 +92,5 @@
 			<!-- /Page Content -->
 
 
+}
 }

@@ -10,6 +10,11 @@ GET	  /bookingtrainer		 controllers.BookingController.bookingtrainerstep(horseid
 GET	  /bookingselecttime	 controllers.BookingController.bookingSelectime(horseid: String, trainerid: String)
 GET	  /bookingconfirm			controllers.BookingController.bookingConfirm(FName: String, LName: String, Email: String, DayToBook:String,TimeToSelect: String,SubButton: String, horseid : String, trainerid: String)
 GET   /forlease		controllers.HomeController.leasing()
+GET   /register       controllers.ClientController.register()
+POST  /register      controllers.ClientController.processPage()
+GET   /login       controllers.ClientController.login()
+POST   /login       controllers.ClientController.loginTry()
+
 GET   /:page          controllers.HomeController.loadPage(page)
 
 # Map static resources from the /public folder to the /assets URL path
