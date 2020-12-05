@@ -7,9 +7,43 @@
 }{
  
 <!-- Page Content -->
-			<div class="content">
+
+			<div class="content success-page-cont">
 				<div class="container-fluid">
-					<h3>@{msg}</h3>
+				
+					<div class="row justify-content-center">
+						<div class="col-lg-5">
+			
+			<!-- Success Card -->
+							<div class="card success-card">
+								<div class="card-body">
+									<div class="success-cont">
+										@*<i class="fas fa-check"></i>*@
+										
+										<h3><p>@{msg}</p></h3>
+										 <p><button onclick="goBack()">Go Back</button>
+										 
+																	 
+											<script>
+										function goBack() {
+										  window.history.back();
+										}
+										</script></p>
+													
+										</div>
+									    </div>	
+										</div>
+									</div>		
+									</div>
+								</div>
+							
+							</div>
+							<!-- /Success Card -->	
+			<!-- /Page Content -->
+
+			@*<div class="content">
+				<div class="container-fluid">
+					<h3><p>@{msg}</p></h3>
 				  <p><button onclick="goBack()">Go Back</button>
 
 	<script>
@@ -18,7 +52,7 @@ function goBack() {
 }
 </script></p>
 				</div>
-			</div>		
+			</div>	*@	
 			<!-- /Page Content -->
 
   

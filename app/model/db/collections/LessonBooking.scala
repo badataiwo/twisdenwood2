@@ -39,7 +39,7 @@ object LessonBooking extends DataStore {
   def create( HorseID: String, TrainerID: String, ClientFName: String, ClientLName: String, ClientEmail : String, BookingDate: String, TimeOfDay: String, Confirmed: Boolean)= {
 
     val doc: Document = Document(
-       "BookindID" -> UUID.randomUUID().toString(),
+       "BookingID" -> UUID.randomUUID().toString(),
       "HorseID" -> HorseID,
       "TrainerID" -> TrainerID,
       "ClientFName" -> ClientFName,
@@ -85,6 +85,13 @@ object LessonBooking extends DataStore {
   def findBookingBasedOnCustomer(clientFName: String, clientLName: String, BookingDate: String) = {
     
     val rec = coll.find(and(equal("ClientFName", clientFName), equal("ClientLName",clientLName),equal("BookingDate",BookingDate))).results()
+     appLogger.info("Active Horses records result is: " + rec)
+     rec
+  }
+  
+  def findBookingBasedOnDateTime(BookingDate: String, BookingTime : String) = {
+    
+    val rec = coll.find(and(equal("TimeOfDay",BookingTime),equal("BookingDate",BookingDate))).results()
      appLogger.info("Active Horses records result is: " + rec)
      rec
   }
