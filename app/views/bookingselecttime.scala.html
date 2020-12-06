@@ -8,7 +8,6 @@
 @day=@{ Array("Sun")
 	 }
 @year=@{  calendar.get(Calendar.YEAR) }
-@months=@{ Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")}
 @localDate=@{LocalDate.now()}
 
 @main(topic) {  
@@ -35,10 +34,10 @@
 										
 											<h4><a href="doctor-profile.html">Trainer: @trainer.Name</a></h4>
 											<div class="rating">
-											@for(ix <- 1 to trainer.Rating-1) {
+											@for(ix <- 1 to trainer.Rating) {
 												<i class="fas fa-star filled"></i>
 												}
-												<i class="fas fa-star"></i>
+												
 												<span class="d-inline-block average-rating">     </span>
 											
 											</div>
@@ -109,7 +108,7 @@
     
       <td valign="top"><p>
       <select name="DayToBook" required="true" id="DayToBook">
-           @for(incDay <- 0 to 16) {
+           @for(incDay <- 0 to 29) {
           <option selected ="@{if(incDay==1) "true" else "false" }"  value="@{localDate.plusDays(incDay).getDayOfWeek().toString +","+ localDate.plusDays(incDay)}">
           @{localDate.plusDays(incDay).getDayOfWeek().toString +","+ localDate.plusDays(incDay)}</option>
           
