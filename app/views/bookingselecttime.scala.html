@@ -8,7 +8,6 @@
 @day=@{ Array("Sun")
 	 }
 @year=@{  calendar.get(Calendar.YEAR) }
-@months=@{ Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")}
 @localDate=@{LocalDate.now()}
 
 @main(topic) {  
@@ -22,7 +21,7 @@
 				<div class="container">
 				
 					<div class="row">
-						<div class="col-12">
+						<div class="col-4" style= float:"left">
 						
 							<div class="card">
 								<div class="card-body">
@@ -30,33 +29,41 @@
 										<a href="doctor-profile.html" class="booking-doc-img">
 											<img src="@routes.Assets.versioned(s"doccure/img/trainers/${trainer.img}")" alt="User Image">
 										</a>
+										
 										<div class="booking-info">
+										
 											<h4><a href="doctor-profile.html">Trainer: @trainer.Name</a></h4>
 											<div class="rating">
-											@for(ix <- 1 to trainer.Rating-1) {
+											@for(ix <- 1 to trainer.Rating) {
 												<i class="fas fa-star filled"></i>
 												}
-												<i class="fas fa-star"></i>
+												
 												<span class="d-inline-block average-rating">     </span>
+											
 											</div>
 											<!-- <p class="text-muted mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</p>  -->
+										
 										</div>
-										<div class="booking-info">
-										<a href="doctor-profile.html" class="booking-doc-img">
+										
+										</div>
+										<br>
+										<div class="booking-doc-info">
+										<p>  <a href="doctor-profile.html" class="booking-doc-img">
 											<img src="@routes.Assets.versioned(s"doccure/img/horses/${horse.ImgUrl}")" alt="User Image">
-										</a>
+										</a> </p>
 										<div >
+										
 											<h4><a href="doctor-profile.html">Horse: @horse.Name</a></h4>
 											<p class="text-muted mb-0"><i class="fas fa-map-marker-alt"></i> Level: @horse.Level</p>
 										</div>
 									   </div>
 									</div>
 									
-								</div>
+								
 							</div>
 						   
 						 
-							<div class="row">
+							<div class="row" style= float:"right">
 								<div class="col-12 col-sm-4 col-md-6">
 									<h4 class="mb-1">
 									<!--  -->
@@ -101,7 +108,7 @@
     
       <td valign="top"><p>
       <select name="DayToBook" required="true" id="DayToBook">
-           @for(incDay <- 0 to 16) {
+           @for(incDay <- 0 to 29) {
           <option selected ="@{if(incDay==1) "true" else "false" }"  value="@{localDate.plusDays(incDay).getDayOfWeek().toString +","+ localDate.plusDays(incDay)}">
           @{localDate.plusDays(incDay).getDayOfWeek().toString +","+ localDate.plusDays(incDay)}</option>
           
