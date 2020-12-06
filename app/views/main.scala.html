@@ -4,7 +4,7 @@
  * two arguments, a `String` for the title of the page and an `Html`
  * objects to insert into the head, and body of the page.
  *@
-@(title: String)(head: Html)(content: Html)
+@(title: String)(head: Html)(content: Html)(implicit flash: Flash)
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,6 +40,7 @@
 	       
     </head>
     <body>
+    
 	  <!-- Header -->
 			<header class="header">
 				<nav class="navbar navbar-expand-lg header-nav">

@@ -1,4 +1,4 @@
-@(RegisterForm: Form[forms.RegisterForm.Data], mode: String, picMap: Map[String, String], config: play.api.Configuration)(implicit request: RequestHeader, messages: Messages)
+@(RegisterForm: Form[forms.RegisterForm.Data], mode: String, picMap: Map[String, String], config: play.api.Configuration)(implicit request: RequestHeader, messages: Messages, flash: Flash)
 @import b4.vertical.fieldConstructor
 @implicitFieldConstructor = @{ b4.vertical.fieldConstructor() }
 

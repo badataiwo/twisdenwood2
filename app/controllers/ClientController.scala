@@ -76,14 +76,16 @@ class ClientController @Inject() (
         form => {
           logger.debug("Loggin ins...")
           val record = Client.findRecord(form.Username)
-          val pass = record.Password
+          //val user = record.Username
+          //val pass = record.Password
           val passFromForm = form.Password
-          if (pass.equals(passFromForm)) {
+          //val userFromForm = form.Username
+          if (record != null && (record.Password).equals(passFromForm)) {
             logger.debug("Success on login")
             Redirect("/forlease")
           }
           else {
-            Ok(views.html.index ("Hi!"))
+            Redirect("/login").flashing("fail"-> "Incorrect login/password combination")
           }
           
         })

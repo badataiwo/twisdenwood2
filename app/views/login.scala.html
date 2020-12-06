@@ -1,4 +1,4 @@
-@(LoginForm: Form[forms.LoginForm.Data], mode: String, picMap: Map[String, String], config: play.api.Configuration)(implicit request: RequestHeader, messages: Messages)
+@(LoginForm: Form[forms.LoginForm.Data], mode: String, picMap: Map[String, String], config: play.api.Configuration)(implicit request: RequestHeader, messages: Messages, flash: Flash)
 @import b4.vertical.fieldConstructor
 @implicitFieldConstructor = @{ b4.vertical.fieldConstructor() }
 
@@ -30,6 +30,11 @@
 									<div class="col-md-12 col-lg-6 login-right">
 										<div class="login-header">
 											<h3>Login </h3>
+											
+											<p style="color:red;">
+											<br/>
+											@flash.get("fail")
+											</p>
 										</div>
 										<form action="index.html">
 											<div class="form-group form-focus">
@@ -66,6 +71,8 @@
 											</div>
 											<div class="text-center dont-have">Don’t have an account? <a href="\register" style="color:#009d00;" >Register</a></div>
 										</form>
+										
+								
 									</div>
 								</div>
 							</div>
