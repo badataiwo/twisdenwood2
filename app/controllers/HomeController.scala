@@ -35,6 +35,16 @@ class HomeController @Inject() (cc: ControllerComponents) extends AbstractContro
   }
 
   
+  def adminEdit() = Action { implicit request: Request[AnyContent] =>
+    //val messages: Messages = request.messages
+    //val title: String = messages("home.title")  
+ 
+    val horses = Horse.findAll().toList
+     val trainers = Trainer.findAll().toList
+    appLogger.info("Loading admin Edit page")    
+    Ok(views.html.edit("Admin Edit", horses, trainers))
+  }
+  
   def leasing() = Action { implicit request: Request[AnyContent] =>
      // val horses = Horse.findAll().toList
       val horses = Horse.findHorsesForLease().toList
@@ -66,7 +76,7 @@ class HomeController @Inject() (cc: ControllerComponents) extends AbstractContro
       //case "login" => Ok(views.html.login(page.capitalize))
       //case "register" => Ok(views.html.register(page.capitalize))
       case "adminlogin" => Ok(views.html.adminlogin(page.capitalize))
-      case "edit" => Ok(views.html.edit(page.capitalize))
+      //case "edit" => Ok(views.html.edit(page.capitalize))
       case _          => Ok(views.html.index("Welcome"))
     }
   }

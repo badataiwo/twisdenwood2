@@ -1,4 +1,4 @@
-@(topic: String)(implicit messages: Messages)
+@(topic: String, horses : List[model.db.collections.Horse], trainers : List[model.db.collections.Trainer])(implicit messages: Messages)
 
 @main(topic) {  
 
@@ -45,70 +45,60 @@
 													</tr>
 												</thead>
 												<tbody>
+										@for(horse <- horses) {
 													<tr>
 														<td>
-															<input class="form-control"  type="text">
+															<input class="form-control" value="@horse.HorseID"  type="text">
 														</td>
 														<td>
-															<input class="form-control" type="text" >
+															<input class="form-control" value="@horse.Name" type="text" >
 														</td>
 														<td>
-															<input class="form-control"  type="text">
+															<input class="form-control" value=@horse.Size" type="text">
 														</td>
 														<td>
-															<input class="form-control"  type="text">
+															<input class="form-control" value="@horse.Level"  type="text">
 														</td>
 														<td>
-															<input class="form-control"  type="text">
+															<input class="form-control" value="@horse.Color" type="text">
 														</td>
 														<td>
-															<input class="form-control"  type="text">
+															<input class="form-control" value="@horse.Gender" type="text">
 														</td>
 														<td>
-																					 <div class="form-check">
-                        <input class="form-check-input" type="radio" name="lessonactive" id="true" value="True" checked>
-                        <label class="form-check-label" for="radiobutton1">
-                            True
+														 <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="lessonactive" id="lessonactive" value="@horse.Active" @if(horse.Active) {checked}>
+                        <label class="form-check-label" for="lessonactive">
+                            @horse.Active
                         </label>
                     </div>
 
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="lessonactive" id="falsee"
-                               value="False">
-                        <label class="form-check-label" for="exampleRadios2">
-                            False
-                        </label>
-                    </div>
+                    
 											
 														</td>
 														<td>
-															<input class="form-control"  type="text">
+															<input class="form-control" value="@horse.ImgUrl" type="text">
+															<a href="#" class="feature-item img">
+											   <img src="@routes.Assets.versioned(s"doccure/img/horses/${horse.ImgUrl}")" alt="User Image">
+										        </a>
 														</td>
-														<td>
-																					 <div class="form-check">
-                        <input class="form-check-input" type="radio" name="leaseactive" id="true" value="True" checked>
-                        <label class="form-check-label" for="radiobutton1">
-                            True
+														
+													<td>
+														<div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="leaseactive" id="leaseactive" value="@horse.ForLease" @if(horse.ForLease){checked}>
+                        <label class="form-check-label" for="leaseactive">
+                             For Lease
                         </label>
                     </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="leaseactive" id="false"
-                               value="False">
-                        <label class="form-check-label" for="exampleRadios2">
-                            False
-                        </label>
-                    </div>
-											
 														</td>
 														<td>
-															<input class="form-control"  type="text" value=75>
+															<input class="form-control"  type="text" value=@horse.Price>
 														</td>
 														<td>
 															<a href="#" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a>
 														</td>
 													</tr>
-													
+										   }
 												</tbody>
 												</table>
 											</div>
