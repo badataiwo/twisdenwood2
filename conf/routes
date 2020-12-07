@@ -11,6 +11,7 @@ GET	  /bookingselecttime	 controllers.BookingController.bookingSelectime(horseid
 GET	  /bookingconfirm			controllers.BookingController.bookingConfirm(FName: String, LName: String, Email: String, DayToBook:String,TimeToSelect: String,SubButton: String, horseid : String, trainerid: String)
 GET   /forlease		controllers.HomeController.leasing()
 GET	  /edit			controllers.HomeController.adminEdit()
+GET	  /viewbookings		controllers.HomeController.viewSchedule()
 GET   /register       controllers.ClientController.register()
 POST  /register      controllers.ClientController.processPage()
 GET   /login       controllers.ClientController.login()

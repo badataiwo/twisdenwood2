@@ -52,7 +52,16 @@ class HomeController @Inject() (cc: ControllerComponents) extends AbstractContro
       Ok(views.html.forlease("Horses For Lease", horses))
     }
   
-  
+  def viewSchedule() = Action { implicit request: Request[AnyContent] =>
+    //val messages: Messages = request.messages
+    //val title: String = messages("home.title")  
+ 
+    val horses = Horse.findAll().toList
+     val trainers = Trainer.findAll().toList
+     val lessonBooking = LessonBooking.findAll().toList
+    appLogger.info("Loading Schedule page")    
+    Ok(views.html.viewbookings("View Bookings", horses, trainers, lessonBooking))
+  }  
     
   //  def about() = Action { implicit request: Request[AnyContent] =>
   //    Ok(views.html.about("About"))
@@ -73,9 +82,11 @@ class HomeController @Inject() (cc: ControllerComponents) extends AbstractContro
       case "showing" => Ok(views.html.showing(page.capitalize))
       case "contactUs" => Ok(views.html.contactUs(page.capitalize))
       case "services" => Ok(views.html.services(page.capitalize))
+       //case "viewbookings" => Ok(views.html.viewbookings(page.capitalize))
       //case "login" => Ok(views.html.login(page.capitalize))
       //case "register" => Ok(views.html.register(page.capitalize))
       case "adminlogin" => Ok(views.html.adminlogin(page.capitalize))
+     
       //case "edit" => Ok(views.html.edit(page.capitalize))
       case _          => Ok(views.html.index("Welcome"))
     }

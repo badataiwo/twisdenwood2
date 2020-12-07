@@ -1,0 +1,140 @@
+
+@(topic: String, horses : List[model.db.collections.Horse], trainers : List[model.db.collections.Trainer], lessonBooking : List[model.db.collections.LessonBooking])(implicit messages: Messages, flash: Flash)
+
+@main(topic) {  
+
+	
+	
+}{
+			
+			<!-- Page Content -->
+			<br><div class="content">
+				<div class="container-fluid">
+
+					<div class="row">
+						
+						<!-- Profile Sidebar -->
+						<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+							<div class="profile-sidebar">
+								<div class="widget-profile pro-widget-content">
+									<div class="profile-info-widget">
+										<a href="#" class="booking-doc-img">
+											<img src="assets/img/patients/patient.jpg" alt="User Image">
+										</a>
+										<div class="profile-det-info">
+											<h3>Trainer Name</h3>
+											
+										</div>
+									</div>
+								</div>
+								<div class="dashboard-widget">
+									<nav class="dashboard-menu">
+										<ul>
+											<li class="active">
+												<a href="patient-dashboard.html">
+													<i class="fas fa-columns"></i>
+													<span>Lesson Schedule</span>
+												</a>
+											</li>
+											
+							
+											<li>
+												<a href="profile-settings.html">
+													<i class="fas fa-user-cog"></i>
+													<span>Profile Settings</span>
+												</a>
+											</li>
+											<li>
+												<a href="change-password.html">
+													<i class="fas fa-lock"></i>
+													<span>Change Password</span>
+												</a>
+											</li>
+											<li>
+												<a href="index.html">
+													<i class="fas fa-sign-out-alt"></i>
+													<span>Logout</span>
+												</a>
+											</li>
+										</ul>
+									</nav>
+								</div>
+
+							</div>
+						</div>
+						<!-- / Profile Sidebar -->
+						
+						<div class="col-md-7 col-lg-8 col-xl-9">
+							<div class="card">
+								<div class="card-body pt-0">
+								
+									<!-- Tab Menu -->
+									<nav class="user-tabs mb-4">
+										<ul class="nav nav-tabs nav-tabs-bottom nav-justified">
+											<li class="nav-item">
+												<a class="nav-link active" href="#pat_appointments" data-toggle="tab">Appointments</a>
+											</li>
+											
+										</ul>
+									</nav>
+									<!-- /Tab Menu -->
+									
+									<!-- Tab Content -->
+									<div class="tab-content pt-0">
+										
+										<!-- Appointment Tab -->
+										<div id="pat_appointments" class="tab-pane fade show active">
+											<div class="card card-table mb-0">
+												<div class="card-body">
+													<div class="table-responsive">
+														<table class="table table-hover table-center mb-0">
+															<thead>
+																
+																<tr>
+																	<th>Trainer</th>
+																	<th>Client First Name</th>
+																	<th>Client Last Name</th>
+																	<th>Lesson Date</th>
+																	<th>Horse</th>
+																	<th>Price</th>
+																	<th>Paid</th>
+																	<th></th>
+																</tr>
+																
+															</thead>
+															<tbody>
+																@for(lesson <- lessonBooking) {
+																<tr>
+																	<td>
+																		<h2 class="table-avatar">
+																			<a href="doctor-profile.html" class="avatar avatar-sm mr-2">
+																				<img class="avatar-img rounded-circle" src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image">
+																			</a>
+																			
+																		 <input value="@lesson.TrainerID"> 
+																		</h2>
+																	</td>
+																	<td> <input value="@lesson.ClientFName"> <span class="d-block text-info"></span></td>
+																	<td> <input value="@lesson.ClientLName">
+																	<td><input value="@lesson.BookingDate"></td>
+																	<td><input value="@lesson.HorseID"></td>
+																	<td><input value="@lesson.HorseID"></td>
+																	<td><input value="@lesson.HorseID"><span class="badge badge-pill bg-success-light">Confirm</span></td>
+																	<td class="text-right">
+																		<div class="table-action">
+																			<a href="javascript:void(0);" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i> Cancel</a>
+																			
+																		</div>
+																	</td>
+																</tr>
+														}
+												
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+										</div>
+										</div></div></div>
+										<!-- /Appointment Tab -->
+}
