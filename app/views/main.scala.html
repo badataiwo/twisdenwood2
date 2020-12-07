@@ -4,7 +4,7 @@
  * two arguments, a `String` for the title of the page and an `Html`
  * objects to insert into the head, and body of the page.
  *@
-@(title: String)(head: Html)(content: Html)(implicit flash: Flash)
+@(title: String)(head: Html)(content: Html)(implicit session: Session, flash: Flash)
 
 <!DOCTYPE html>
 <html lang="en">
@@ -103,13 +103,31 @@
 						</ul>		 
 					</div>		 
 					<ul class="nav header-navbar-rht">
-						
+						<li class="@if(session.get("username") != null) {active}">
+								@session.get("username")
+							</li>
+								
+					
 						<li class="nav-item">
 							<a class="nav-link header-login" href="contactUs">Contact Us </a>
 						</li>
-						<li class="nav-item">
+						@for(key <- Array("username")){
+							@if(session.get(key) != null){
+								<li class="@if(session.get("username") != null) {active}">
+							<a class="nav-link header-login" href="@routes.ClientController.logout()">Logout </a>
+							
+						</li> 
+							}
+						
+						
+						}
+						
+						
+						<li class="@if(session.get("username") == null) {active}">
 							<a class="nav-link header-login" href="\login">Login </a>
+							
 						</li>
+						
 						
 					</ul>
 				</nav>

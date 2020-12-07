@@ -15,6 +15,7 @@ GET   /register       controllers.ClientController.register()
 POST  /register      controllers.ClientController.processPage()
 GET   /login       controllers.ClientController.login()
 POST   /login       controllers.ClientController.loginTry()
+GET    /logout      controllers.ClientController.logout()
 
 GET   /:page          controllers.HomeController.loadPage(page)
 

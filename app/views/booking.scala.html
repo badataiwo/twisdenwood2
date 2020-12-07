@@ -1,4 +1,4 @@
-@(topic: String, horses : List[model.db.collections.Horse])(implicit messages: Messages, flash: Flash)
+@(topic: String, horses : List[model.db.collections.Horse])(implicit session: Session, messages: Messages, flash: Flash)
 
 @main(topic) {  
 

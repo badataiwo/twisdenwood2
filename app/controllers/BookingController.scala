@@ -43,11 +43,14 @@ class BookingController @Inject() (cc: ControllerComponents) extends AbstractCon
        
      //   appLogger.info(s"Debug Loading QueryString list: ${lst}")
      //  appLogger.info(s"Debug Loading QueryString keys: ${keys}")
-        
-        val horse = Horse.findRecord(horseid)
+        val usernameOpt = request.session.get("username")
+        usernameOpt.map { username =>
+          val horse = Horse.findRecord(horseid)
       appLogger.info(s"Debug Loading bookingtrainerstep() ${horseid}")
       val trainers = Trainer.findAll().toList
       Ok(views.html.bookingtrainer("Booking", horse, trainers))
+        }.getOrElse(Redirect(routes.ClientController.login()))
+        
     }
     
     def bookingSelectime(horseid :  String, trainerid: String) = Action { implicit request: Request[AnyContent] =>

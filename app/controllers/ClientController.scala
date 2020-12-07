@@ -82,7 +82,7 @@ class ClientController @Inject() (
           //val userFromForm = form.Username
           if (record != null && (record.Password).equals(passFromForm)) {
             logger.debug("Success on login")
-            Redirect("/forlease")
+            Redirect("/booking").withSession("username" -> record.Username)  
           }
           else {
             Redirect("/login").flashing("fail"-> "Incorrect login/password combination")
@@ -90,6 +90,10 @@ class ClientController @Inject() (
           
         })
         
+  }
+  
+  def logout() = Action {
+    Redirect(routes.ClientController.login()).withNewSession
   }
  
   

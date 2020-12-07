@@ -3,7 +3,7 @@
 @import java.util.Date
 @import java.time.LocalDate
 
-@(topic: String, horse : model.db.collections.Horse, trainer : model.db.collections.Trainer)(implicit messages: Messages, flash: Flash)
+@(topic: String, horse : model.db.collections.Horse, trainer : model.db.collections.Trainer)(implicit session: Session, messages: Messages, flash: Flash)
 @calendar=@{java.util.Calendar.getInstance()}
 @day=@{ Array("Sun")
 	 }
