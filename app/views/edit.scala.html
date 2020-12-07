@@ -48,38 +48,36 @@
 												</thead>
 												<tbody>
 										@for(horse <- horses) {
-													<tr>
+										      	<tr>
+													  <form id="form1" name="form1" method="get" action="/updateHorseRecord">
 														<td>
-															<input class="form-control" value="@horse.HorseID"  type="text">
+															<input class="form-control" name="horseid" value="@horse.HorseID" readonly="readonly" type="text">
 														</td>
 														<td>
-															<input class="form-control" value="@horse.Name" type="text" >
+															<input class="form-control" name="horsename" value="@horse.Name" type="text" >
 														</td>
 														<td>
-															<input class="form-control" value=@horse.Size" type="text">
+															<input class="form-control" name="horsesize" value=@horse.Size" type="text">
 														</td>
 														<td>
-															<input class="form-control" value="@horse.Level"  type="text">
+															<input class="form-control" name="horselevel" value="@horse.Level"  type="text">
 														</td>
 														<td>
-															<input class="form-control" value="@horse.Color" type="text">
+															<input class="form-control" name="horsecolor" value="@horse.Color" type="text">
 														</td>
 														<td>
-															<input class="form-control" value="@horse.Gender" type="text">
+															<input class="form-control" name="horsegender" value="@horse.Gender" type="text">
 														</td>
 														<td>
 														 <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="lessonactive" id="lessonactive" value="@horse.Active" @if(horse.Active) {checked}>
                         <label class="form-check-label" for="lessonactive">
-                            @horse.Active
+                            Active
                         </label>
                     </div>
-
-                    
-											
 														</td>
 														<td>
-															<input class="form-control" value="@horse.ImgUrl" type="text">
+															<input class="form-control" name="horseImgUrl" value="@horse.ImgUrl" type="text">
 															<a href="#" class="feature-item img">
 											   <img src="@routes.Assets.versioned(s"doccure/img/horses/${horse.ImgUrl}")" alt="User Image">
 										        </a>
@@ -94,35 +92,83 @@
                     </div>
 														</td>
 														<td>
-															<input class="form-control"  type="text" value=@horse.Price>
+															<input class="form-control" name="horseprice" type="text" value=@horse.Price>
 														</td>
 														<td>
-															<a href="#" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a>
+														<input type="submit" name="but" id="But" value="Update" class="btn btn-primary  mt-2" />
+														
 														</td>
 														<td>
-															<a href="#" class="btn btn-primary float-right mt-2">Update</a>
+															<a href="/deleteHorseRecord?horseid=@horse.HorseID" class="btn bg-danger-light trash float-right"><i class="far fa-trash-alt"></i></a>
 														</td>
-													</tr>
+													</form>
+												</tr>
+											
 										   }
+										     <tr>
+										     <form id="form2" name="form2" method="get" action="/addHorseRecord">
+														<td>
+															<input class="form-control" name="horseid" value="" readonly="readonly" type="text">
+														</td>
+														<td>
+															<input class="form-control" name="horsename"  required="true" value="" type="text" >
+														</td>
+														<td>
+															<input class="form-control" name="horsesize" required="true" value="" type="text">
+														</td>
+														<td>
+															<input class="form-control" name="horselevel" required="true"value=""  type="text">
+														</td>
+														<td>
+															<input class="form-control" name="horsecolor" required="true" value="" type="text">
+														</td>
+														<td>
+															<input class="form-control" name="horsegender" required="true" value="" type="text">
+														</td>
+														<td>
+														 <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="lessonactive" id="lessonactive" required="true" value="false" >
+                        <label class="form-check-label" for="lessonactive">
+                            Active
+                        </label>
+                    </div>
+														</td>
+														<td>
+															<input class="form-control" name="horseImgUrl" value="" type="text">
+															
+														</td>
+														
+													<td>
+														<div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="leaseactive" id="leaseactive"  value="false">
+                        <label class="form-check-label" for="leaseactive">
+                             For Lease
+                        </label>
+                    </div>
+														</td>
+														<td>
+															<input class="form-control" name="horseprice" type="text" value=75.0>
+														</td>
+														<td>
+														<input type="submit" name="but" id="ButAdd" value="Add" class="btn btn-primary  mt-2" />
+														
+														</td>
+														<td>
+															-
+														</td>
+													</form>	
+													
+										     </tr>
 												</tbody>
 												</table>
 											</div>
 										</div>
 									</div>
-									<!-- /Prescription Item -->
+		
 									
+									<!--  Below is for Trainers -->
 									
-									
-									<!-- Submit Section -->
-									<div class="row">
-										<div class="col-md-12">
-											<div class="submit-section">
-												<button type="submit" class="btn btn-primary submit-btn">Save</button>
-												<button type="reset" class="btn btn-secondary submit-btn">Clear</button>
-											</div>
-										</div>
-									</div>
-									<!-- /Submit Section -->
+	
 									
 									</div>
 									</div>
@@ -159,7 +205,63 @@
 													</tr>
 												</thead>
 												<tbody>
+												@for(trainer <- trainers) {
 													<tr>
+														<td>
+															<input class="form-control" value="@trainer.TrainerID" readonly="readonly" type="text">
+														</td>
+														<td>
+															<input class="form-control" value="@trainer.Name" type="text" >
+														</td>
+													
+														<td>
+															 <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="traineractive" id="traineractive" value="@trainer.Active" @if(trainer.Active){ checked}>
+                        <label class="form-check-label" for="traineractive">
+                            Active
+                        </label>
+                    </div>
+				</td>
+							<td>
+															
+                    <div class="form-check">
+                        <select name="TrainerSkill" required="true" id="TrainerSkill">
+          					<option value="Beginner" @if(trainer.SkillLevel=="Beginner"){selected="true"}>Beginner</option>
+         					 <option value="Intermediate" @if(trainer.SkillLevel=="Intermediate"){selected="true"}>Intermediate</option>
+          					<option value="Advanced" @if(trainer.SkillLevel=="Advanced"){selected="true"} >Advanced</option>
+          
+     					 </select>
+                    </div>
+					</td>
+					<td>
+															  <div class="form-check">
+                        <select name="TrainerRating" required="true" id="TrainerRating">
+          					<option value="1" @if(trainer.Rating==1){selected="true"}>1</option>
+         					 <option value="2"@if(trainer.Rating==2){selected="true"}>2</option>
+          					<option value="3" @if(trainer.Rating==3){selected="true"}>3</option>
+          					<option value="4" @if(trainer.Rating==4){selected="true"}>4</option>
+         					<option value="5" @if(trainer.Rating==5){selected="true"}>5</option>
+          
+     					 </select>
+                    </div>
+														</td>
+														<td>
+															<input class="form-control" value="@trainer.img" type="text" >
+															<a href="#" class="feature-item img">
+											   <img src="@routes.Assets.versioned(s"doccure/img/trainers/${trainer.img}")" alt="User Image">
+										        </a>
+														</td>
+														<td>
+															<a href="#" class="btn btn-primary mt-2">Update</a>
+														</td>
+														<td>
+															<a href="#" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a>
+														</td>
+														
+													</tr>
+												}
+												<!--  This below is for the Add More an empty row -->	
+												<tr>
 														<td>
 															<input class="form-control"  type="text">
 														</td>
@@ -169,17 +271,9 @@
 													
 														<td>
 															 <div class="form-check">
-                        <input class="form-check-input" type="radio" name="traineractive" id="true" value="True" checked>
-                        <label class="form-check-label" for="radiobutton1">
-                            True
-                        </label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="traineractive" id="falsee"
-                               value="False">
-                        <label class="form-check-label" for="exampleRadios2">
-                            False
+                        <input class="form-check-input" type="checkbox" name="traineractive" id="true" value="True" checked>
+                        <label class="form-check-label" for="traineractive">
+                            Active
                         </label>
                     </div>
 											
@@ -187,79 +281,47 @@
 														<td>
 															
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="skill" id="beginner" value="Beginner" checked>
-                        <label class="form-check-label" for="radiobutton1">
-                            Beginner
-                        </label>
+                        <select name="TrainerSkill" required="true" id="TrainerSkill">
+          					<option value="Beginner">Beginner</option>
+         					 <option value="Intermediate" selected="true">Intermediate</option>
+          					<option value="Advanced">Advanced</option>
+          
+     					 </select>
                     </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="skill" id="intermediate"
-                               value="Intermediate">
-                        <label class="form-check-label" for="exampleRadios2">
-                            Intermediate
-                        </label>
-                    </div>
-                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="skill" id="advanced"
-                               value="Advanced">
-                        <label class="form-check-label" for="exampleRadios2">
-                            Advanced
-                        </label>
-                    </div>
-														</td>
-														<td>
+					</td>
+					<td>
 															  <div class="form-check">
-                        <input class="form-check-input" type="radio" name="rating" id="1" value="1" checked>
-                        <label class="form-check-label" for="radiobutton1">
-                            1
-                        </label>
+                        <select name="TrainerRating" required="true" id="TrainerRating">
+          					<option value="1">1</option>
+         					 <option value="2">2</option>
+          					<option value="3">3</option>
+          					<option value="4">4</option>
+         					<option value="5">5</option>
+          
+     					 </select>
                     </div>
 
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="rating" id="2"
-                               value="2">
-                        <label class="form-check-label" for="exampleRadios2">
-                            2
-                        </label>
-                    </div>
-                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="rating" id="3"
-                               value="3">
-                        <label class="form-check-label" for="exampleRadios2">
-                            3
-                        </label>
-                    </div>
-                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="rating" id="4"
-                               value="4">
-                        <label class="form-check-label" for="exampleRadios2">
-                            4
-                        </label>
-                    </div>
-                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="rating" id="5"
-                               value="A5">
-                        <label class="form-check-label" for="exampleRadios2">
-                            5
-                        </label>
-                    </div>
 														</td>
 														<td>
 															<input class="form-control"  type="text" >
 														</td>
 														<td>
+															<a href="#" class="btn btn-primary  mt-2">Save</a>
+														</td>
+														<td>
 															<a href="#" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a>
 														</td>
+														
 													</tr>
 													
+												
 												</tbody>
 												</table>
 											</div>
 										</div>
 									</div>
 									<!-- /Prescription Item -->
-								<!-- Submit Section -->
+								<!-- Submit Section 
 									<div class="row">
 										<div class="col-md-12">
 											<div class="submit-section">
@@ -268,7 +330,7 @@
 											</div>
 										</div>
 									</div>
-									<!-- /Submit Section -->
+									--><!-- /Submit Section -->
 							
 						
 					</div>
