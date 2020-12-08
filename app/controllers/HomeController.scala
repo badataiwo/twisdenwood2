@@ -35,93 +35,6 @@ class HomeController @Inject() (cc: ControllerComponents) extends AbstractContro
   }
 
   
-  def adminEdit() = Action { implicit request: Request[AnyContent] =>
-    //val messages: Messages = request.messages
-    //val title: String = messages("home.title")  
- 
-    val horses = Horse.findAll().toList
-     val trainers = Trainer.findAll().toList
-    appLogger.info("Loading admin Edit page")    
-    Ok(views.html.edit("Admin Edit", horses, trainers))
-  }
-  
-  def processAdminLogin(username: String, pwd: String) = Action { implicit request: Request[AnyContent] =>
-    //val messages: Messages = request.messages
-    //val title: String = messages("home.title")  
- 
-    val trainer = Trainer.findLoginTrainer(username, pwd)
-    if (trainer !=null) {
-      val horses = Horse.findAll().toList
-      val trainers = Trainer.findAll().toList
-      appLogger.info("Loading admin Edit page")    
-      Ok(views.html.edit("Admin Edit", horses, trainers))
-    
-    }else {
-      appLogger.info("Trainer login was not found")
-       Ok(views.html.bookingerrmsg("Admin Login error","Sorry, You entered an invalid login for the Trainer, Please press back and try again"))
-    }
-    
-  }
-  
-  
-   def addHorseRecord(horseid: String, horsename: String, horsesize: String, horselevel: String, horsecolor : String,horsegender : String, lessonactive : Option[String], horseImgUrl : String, leaseactive : Boolean, horseprice : Double, But : Option[String]) = Action { implicit request: Request[AnyContent] =>
-        appLogger.info(s"Horse Record id $horseid deleted")
-      appLogger.info(s"parameter leaseactive value is $leaseactive")
-      appLogger.info(s"parameter lessonactive value: $lessonactive")
-      val isActive = lessonactive.getOrElse("false").toBoolean
-      appLogger.info(s"isActive getOrElse returns: $isActive")
-      
-      
-       Horse.create(horsename,horsesize, horselevel, horsecolor, horsegender,isActive, horseImgUrl, leaseactive, horseprice)
-            appLogger.info("Horse Record Added")
-            appLogger.info("Loading admin Edit page")  
-      val horses = Horse.findAll().toList
-      val trainers = Trainer.findAll().toList
-            Ok(views.html.edit("Admin Edit", horses, trainers))
-      
-  }
-  
-  
-  
-  def updateHorseRecord(horseid: String, horsename: String, horsesize: String, horselevel: String, horsecolor : String,horsegender : String, lessonactive : Option[String], horseImgUrl : String, leaseactive : Boolean, horseprice : Double, But : Option[String]) = Action { implicit request: Request[AnyContent] =>
-   
-    val horse = Horse.findRecord(horseid)
-    if (horse !=null){
-      //Horse.delete(horseid)
-      appLogger.info(s"Horse Record id $horseid deleted")
-      appLogger.info(s"parameter leaseactive value is $leaseactive")
-      appLogger.info(s"parameter lessonactive value: $lessonactive")
-      val isActive = lessonactive.getOrElse("false").toBoolean
-      appLogger.info(s"isActive getOrElse returns: $isActive")
-      //Horse.create(horsename,horsesize, horselevel, horsecolor, horsegender,isActive, horseImgUrl, leaseactive, horseprice)
-      Horse.createUpdate(horseid, horsename,horsesize, horselevel, horsecolor, horsegender,isActive, horseImgUrl, leaseactive, horseprice)
-      appLogger.info("Horse Record updated")
-      val horses = Horse.findAll().toList
-     val trainers = Trainer.findAll().toList
-     appLogger.info("Loading admin Edit page")    
-    Ok(views.html.edit("Admin Edit", horses, trainers))
-    
-    
-    }else{
-       Ok(views.html.bookingerrmsg("Admin Horse Edit error",s"Sorry, The horse record $horseid could not be located. This horse record cannot be updated."))
-    }
-  }
-  
-  
-  
-  
-  def deleteHorseRecord(horseid : String) = Action { implicit request: Request[AnyContent] =>
-    //val messages: Messages = request.messages
-    //val title: String = messages("home.title")  
- 
-    Horse.delete(horseid)
-    appLogger.info(s"Horse Record id $horseid deleted")
-    val horses = Horse.findAll().toList
-     val trainers = Trainer.findAll().toList
-    appLogger.info("Loading admin Edit page")    
-    Ok(views.html.edit("Admin Edit", horses, trainers))
-  }
-  
   
   def leasing() = Action { implicit request: Request[AnyContent] =>
      // val horses = Horse.findAll().toList
@@ -130,17 +43,7 @@ class HomeController @Inject() (cc: ControllerComponents) extends AbstractContro
       Ok(views.html.forlease("Horses For Lease", horses))
     }
   
-  def viewSchedule() = Action { implicit request: Request[AnyContent] =>
-    //val messages: Messages = request.messages
-    //val title: String = messages("home.title")  
- 
-    val horses = Horse.findAll().toList
-     val trainers = Trainer.findAll().toList
-     val lessonBooking = LessonBooking.findAll().toList
-    appLogger.info("Loading Schedule page")    
-    Ok(views.html.viewbookings("View Bookings", horses, trainers, lessonBooking))
-  }  
-    
+  
   //  def about() = Action { implicit request: Request[AnyContent] =>
   //    Ok(views.html.about("About"))
   //  }

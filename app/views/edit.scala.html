@@ -1,5 +1,4 @@
 
-
 @(topic: String, horses : List[model.db.collections.Horse], trainers : List[model.db.collections.Trainer])(implicit session: Session, messages: Messages, flash: Flash)
 
 @main(topic) {  
@@ -212,19 +211,20 @@
 												<tbody>
 												@for(trainer <- trainers) {
 													<tr>
+													<form id="formTrainer" name="formTrainer" method="get" action="/updateTrainerRecord">
 														<td>
-															<input class="form-control" value="@trainer.TrainerID" readonly="readonly" type="text">
+															<input class="form-control" name="trainerid" id="trainerid" value="@trainer.TrainerID" readonly="readonly" type="text">
 														</td>
 														<td>
-															<input class="form-control" value="@trainer.Name" type="text" >
+															<input class="form-control" name="tname" id="tname" value="@trainer.Name" type="text" >
 														</td>
 													
 														<td>
 															 <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="traineractive" id="traineractive" value="@trainer.Active" @if(trainer.Active){ checked}>
-                        <label class="form-check-label" for="traineractive">
-                            Active
-                        </label>
+                       				 <select name="traineractive" id="traineractive">
+          								<option value="true" @if(trainer.Active){selected="true"}>True</option>
+          								<option value="false" @if(!trainer.Active){selected="true"}">False</option>
+          						  </select>
                     </div>
 				</td>
 							<td>
@@ -242,7 +242,7 @@
 															  <div class="form-check">
                         <select name="TrainerRating" required="true" id="TrainerRating">
           					<option value="1" @if(trainer.Rating==1){selected="true"}>1</option>
-         					 <option value="2"@if(trainer.Rating==2){selected="true"}>2</option>
+         					<option value="2"@if(trainer.Rating==2){selected="true"}>2</option>
           					<option value="3" @if(trainer.Rating==3){selected="true"}>3</option>
           					<option value="4" @if(trainer.Rating==4){selected="true"}>4</option>
          					<option value="5" @if(trainer.Rating==5){selected="true"}>5</option>
@@ -251,35 +251,36 @@
                     </div>
 														</td>
 														<td>
-															<input class="form-control" value="@trainer.img" type="text" >
+															<input class="form-control" name="timageurl"  value="@trainer.img" type="text" >
 															<a href="#" class="feature-item img">
 											   <img src="@routes.Assets.versioned(s"doccure/img/trainers/${trainer.img}")" alt="User Image">
 										        </a>
 														</td>
 														<td>
-															<a href="#" class="btn btn-primary mt-2">Update</a>
+															<input type="submit" name="but" id="But" value="Update" class="btn btn-primary  mt-2" />
 														</td>
 														<td>
-															<a href="#" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a>
+															<a href="/deleteTrainerRecord?trainerid=@trainer.TrainerID" class="btn bg-danger-light trash float-right"><i class="far fa-trash-alt"></i></a>
 														</td>
-														
+													</form>
 													</tr>
 												}
 												<!--  This below is for the Add More an empty row -->	
 												<tr>
+												    <form id="formTrainer" name="formTrainer" method="get" action="/addTrainerRecord">
 														<td>
-															<input class="form-control"  type="text">
+															<input class="form-control" readonly="true"  type="text">
 														</td>
 														<td>
-															<input class="form-control" type="text" >
+															<input class="form-control" name="tname" type="text" >
 														</td>
 													
 														<td>
 															 <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="traineractive" id="true" value="True" checked>
-                        <label class="form-check-label" for="traineractive">
-                            Active
-                        </label>
+                        			<select name="leaseactive" id="leaseactive">
+          								<option value="true" selected="true">True</option>
+          								<option value="false">False</option>
+          						  </select>
                     </div>
 											
 														</td>
@@ -301,22 +302,20 @@
          					 <option value="2">2</option>
           					<option value="3">3</option>
           					<option value="4">4</option>
-         					<option value="5">5</option>
+         					<option value="5" selected="true">5</option>
           
      					 </select>
                     </div>
 
 														</td>
 														<td>
-															<input class="form-control"  type="text" >
+															<input class="form-control" name="timageurl"  type="text" >
 														</td>
 														<td>
-															<a href="#" class="btn btn-primary  mt-2">Save</a>
-														</td>
-														<td>
-															<a href="#" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i></a>
+															<button type="submit" name="but" id="but" class="btn btn-primary submit-btn">Add Trainer</button>
 														</td>
 														
+														</form>
 													</tr>
 													
 												

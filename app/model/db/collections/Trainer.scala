@@ -39,7 +39,7 @@ object Trainer extends DataStore {
   def create(Name: String, Active: Boolean, Username: String, Password: String, SkillLevel : String, Rating: Int, img: String) = {
 
     val doc: Document = Document(
-      "HorseID" -> UUID.randomUUID().toString(),
+      "TrainerID" -> UUID.randomUUID().toString(),
       "Name" -> Name,
       "Active" -> Active,
       "Username" -> Username,
@@ -57,6 +57,31 @@ object Trainer extends DataStore {
     })
 
   }
+  
+  def createUpdate(trainerid: String,Name: String, Active: Boolean, Username: String, Password: String, SkillLevel : String, Rating: Int, img: String) = {
+
+     delete(trainerid)
+    
+    val doc: Document = Document(
+      "TrainerID" -> trainerid,
+      "Name" -> Name,
+      "Active" -> Active,
+      "Username" -> Username,
+      "Password" -> Password,
+      "SkillLevel" -> SkillLevel,
+      "Rating" -> Rating,
+      "img" -> img)
+
+    val observable: Observable[Completed] = listings.insertOne(doc)
+
+    observable.subscribe(new Observer[Completed] {
+      override def onNext(result: Completed): Unit = appLogger.debug(s"Inserted: $result")
+      override def onError(e: Throwable): Unit = appLogger.error(s"Failed: $e")
+      override def onComplete(): Unit = appLogger.info("Completed")
+    })
+
+  }
+  
   
   //Update record
   def update(newTrainer: Trainer) = {
