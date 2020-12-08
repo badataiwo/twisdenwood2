@@ -55,11 +55,17 @@ class BookingController @Inject() (cc: ControllerComponents) extends AbstractCon
     
     def bookingSelectime(horseid :  String, trainerid: String) = Action { implicit request: Request[AnyContent] =>
      
-        
-        val horse = Horse.findRecord(horseid)
+         val usernameOpt = request.session.get("username")
+         
+         usernameOpt.map { username =>
+           val horse = Horse.findRecord(horseid)
       appLogger.info(s"Debug Loading bookingtrainerstep() ${horseid}")
       val trainer = Trainer.findRecord(trainerid)
       Ok(views.html.bookingselecttime("Booking", horse, trainer))
+           
+         }.getOrElse(Redirect(routes.ClientController.login()))
+         
+        
     }
     
     def bookingConfirm(FName: String, LName: String, Email: String, DayToBook:String,TimeToSelect:String,SubButton:String, horseid :  String, trainerid: String) = Action { implicit request: Request[AnyContent] =>

@@ -60,6 +60,33 @@ object Horse extends DataStore {
 
   }
   
+  
+  def createUpdate(horseid: String, Name: String, Size: String, Level: String, Color: String, Gender : String, Active: Boolean, ImgUrl: String, ForLease: Boolean, Price: Double) = {
+     
+    delete(horseid)
+    
+    val doc: Document = Document(
+      "HorseID" -> horseid,
+      "Name" -> Name,
+      "Size" -> Size,
+      "Level" -> Level,
+      "Color" -> Color,
+      "Gender" -> Gender,
+      "Active" -> Active,
+      "ImgUrl" -> ImgUrl,
+      "ForLease" -> ForLease,
+      "Price" -> Price)
+
+    val observable: Observable[Completed] = listings.insertOne(doc)
+
+    observable.subscribe(new Observer[Completed] {
+      override def onNext(result: Completed): Unit = appLogger.debug(s"Inserted: $result")
+      override def onError(e: Throwable): Unit = appLogger.error(s"Failed: $e")
+      override def onComplete(): Unit = appLogger.info("Completed")
+    })
+
+  }
+  
   //Update record
   def update(newHorse: Horse) = {
 

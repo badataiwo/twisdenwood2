@@ -57,7 +57,7 @@
 															<input class="form-control" name="horsename" value="@horse.Name" type="text" >
 														</td>
 														<td>
-															<input class="form-control" name="horsesize" value=@horse.Size" type="text">
+															<input class="form-control" name="horsesize" value="@horse.Size" type="text">
 														</td>
 														<td>
 															<input class="form-control" name="horselevel" value="@horse.Level"  type="text">
@@ -70,7 +70,7 @@
 														</td>
 														<td>
 														 <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="lessonactive" id="lessonactive" value="@horse.Active" @if(horse.Active) {checked}>
+                        <input class="form-check-input" type="checkbox" name="lessonactive" id="lessonactive" value=@horse.Active @if(horse.Active) {checked}>
                         <label class="form-check-label" for="lessonactive">
                             Active
                         </label>
@@ -85,7 +85,7 @@
 														
 													<td>
 														<div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="leaseactive" id="leaseactive" value="@horse.ForLease" @if(horse.ForLease){checked}>
+                        <input class="form-check-input" type="checkbox" name="leaseactive" id="leaseactive" value=@horse.ForLease @if(horse.ForLease){checked}>
                         <label class="form-check-label" for="leaseactive">
                              For Lease
                         </label>

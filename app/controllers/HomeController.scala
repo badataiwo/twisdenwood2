@@ -78,14 +78,15 @@ class HomeController @Inject() (cc: ControllerComponents) extends AbstractContro
     
     val horse = Horse.findRecord(horseid)
     if (horse !=null){
-      Horse.delete(horseid)
+      //Horse.delete(horseid)
       appLogger.info(s"Horse Record id $horseid deleted")
       appLogger.info(s"parameter leaseactive value is $leaseactive")
       appLogger.info(s"parameter lessonactive value: $lessonactive")
       val isActive = lessonactive.getOrElse("false").toBoolean
       appLogger.info(s"isActive getOrElse returns: $isActive")
-      Horse.create(horsename,horsesize, horselevel, horsecolor, horsegender,isActive, horseImgUrl, leaseactive, horseprice)
-      appLogger.info("New Horse Record added")
+      //Horse.create(horsename,horsesize, horselevel, horsecolor, horsegender,isActive, horseImgUrl, leaseactive, horseprice)
+      Horse.createUpdate(horseid, horsename,horsesize, horselevel, horsecolor, horsegender,isActive, horseImgUrl, leaseactive, horseprice)
+      appLogger.info("Horse Record updated")
       val horses = Horse.findAll().toList
      val trainers = Trainer.findAll().toList
      appLogger.info("Loading admin Edit page")    

@@ -88,7 +88,8 @@ object Trainer extends DataStore {
   
   
   def findLoginTrainer(username: String, pwd: String) = {
-    // val rec = coll.find(and(equal("Username", username), equal("Password", pwd))).headResult()
+   // val rec = coll.find(and(equal("Active",true), equal("ForLease",false))).results()
+    // val rec = coll.find(and(equal("Username", username), equal("Password", pwd))).results()
       val rec = coll.find(equal("Username", username)).headResult()
      appLogger.info("Login Trainer found : " + rec)
      
