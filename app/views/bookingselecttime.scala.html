@@ -3,7 +3,7 @@
 @import java.util.Date
 @import java.time.LocalDate
 
-@(topic: String, horse : model.db.collections.Horse, trainer : model.db.collections.Trainer)(implicit session: Session, messages: Messages, flash: Flash)
+@(topic: String, horse : model.db.collections.Horse, trainer : model.db.collections.Trainer, client : model.db.collections.Client)(implicit session: Session, messages: Messages, flash: Flash)
 @calendar=@{java.util.Calendar.getInstance()}
 @day=@{ Array("Sun")
 	 }
@@ -86,13 +86,14 @@
     <tr>
       <td valign="top"><label for="FName">First Name</label>
         <br />
-<input type="text" name="FName" id="FName" required="true" /></td>
+<input type="text" name="FName" value="@client.FirstName" id="FName" required="true" /></td>
       <td valign="top"><label for="Last Name">Last Name<br />
       </label>
-      <input type="text" name="LName" id="LName" required="true" /></td>
+      <input type="text" name="LName" value="@client.LastName" id="LName" required="true" /></td>
       <td valign="top"><label for="Email">Email
       </label><br />
       <input type="text" name="Email" id="Email" required="true" /></td>
+      
     </tr>
     <tr>
       <td valign="top">&nbsp;</td>
@@ -109,7 +110,7 @@
       <td valign="top"><p>
       <select name="DayToBook" required="true" id="DayToBook">
            @for(incDay <- 0 to 29) {
-          <option selected ="@{if(incDay==1) "true" else "false" }"  value="@{localDate.plusDays(incDay).getDayOfWeek().toString +","+ localDate.plusDays(incDay)}">
+          <option @if(incDay==1){selected="true"} value="@{localDate.plusDays(incDay).getDayOfWeek().toString +","+ localDate.plusDays(incDay)}">
           @{localDate.plusDays(incDay).getDayOfWeek().toString +","+ localDate.plusDays(incDay)}</option>
           
         }

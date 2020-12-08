@@ -70,10 +70,10 @@
 														</td>
 														<td>
 														 <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="lessonactive" id="lessonactive" value=@horse.Active @if(horse.Active) {checked}>
-                        <label class="form-check-label" for="lessonactive">
-                            Active
-                        </label>
+                          <select name="lessonactive" id="lessonactive">
+          								<option value="true" @if(horse.Active){selected="true"}>True</option>
+          								<option value="false" @if(!horse.Active){selected="true"}">False</option>
+          						  </select>
                     </div>
 														</td>
 														<td>
@@ -84,12 +84,12 @@
 														</td>
 														
 													<td>
-														<div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="leaseactive" id="leaseactive" value=@horse.ForLease @if(horse.ForLease){checked}>
-                        <label class="form-check-label" for="leaseactive">
-                             For Lease
-                        </label>
-                    </div>
+										<div class="form-check">
+                                  <select name="leaseactive" id="leaseactive">
+          								<option value="true" @if(horse.ForLease){selected="true"}>True</option>
+          								<option value="false" @if(!horse.ForLease){selected="true"}">False</option>
+          						  </select>
+                   			 </div>
 														</td>
 														<td>
 															<input class="form-control" name="horseprice" type="text" value=@horse.Price>
@@ -127,10 +127,11 @@
 														</td>
 														<td>
 														 <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="lessonactive" id="lessonactive" required="true" value="false" >
-                        <label class="form-check-label" for="lessonactive">
-                            Active
-                        </label>
+                        							
+                            <select name="lessonactive" id="lessonactive">
+          					<option value="true" selected="true">True</option>
+          					<option value="false">False</option>
+          					</select>
                     </div>
 														</td>
 														<td>
@@ -140,10 +141,10 @@
 														
 													<td>
 														<div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="leaseactive" id="leaseactive"  value="false">
-                        <label class="form-check-label" for="leaseactive">
-                             For Lease
-                        </label>
+                        <select name="leaseactive" id="leaseactive">
+          					<option value="true" selected="true">True</option>
+          					<option value="false">False</option>
+          					</select>
                     </div>
 														</td>
 														<td>

@@ -59,9 +59,10 @@ class BookingController @Inject() (cc: ControllerComponents) extends AbstractCon
          
          usernameOpt.map { username =>
            val horse = Horse.findRecord(horseid)
+           val client = Client.findRecord(username)
       appLogger.info(s"Debug Loading bookingtrainerstep() ${horseid}")
       val trainer = Trainer.findRecord(trainerid)
-      Ok(views.html.bookingselecttime("Booking", horse, trainer))
+      Ok(views.html.bookingselecttime("Booking", horse, trainer, client))
            
          }.getOrElse(Redirect(routes.ClientController.login()))
          
