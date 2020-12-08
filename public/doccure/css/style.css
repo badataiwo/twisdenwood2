@@ -1175,8 +1175,8 @@ button.bg-danger:hover {
 .nav-tabs.nav-tabs-solid > .active > a,
 .nav-tabs.nav-tabs-solid > .active > a:hover,
 .nav-tabs.nav-tabs-solid > .active > a:focus {
-	background-color: #20c0f3;
-	border-color: #20c0f3;
+	background-color:#2a4720;
+	border-color: #2a4720;
 	color: #fff;
 }
 .tab-content {
@@ -1207,8 +1207,8 @@ button.bg-danger:hover {
 .nav-tabs.nav-tabs-solid > li > a.active,
 .nav-tabs.nav-tabs-solid > li > a.active:hover,
 .nav-tabs.nav-tabs-solid > li > a.active:focus {
-	background-color: #20c0f3;
-	border-color: #20c0f3;
+	background-color: ##2a4720;
+	border-color: ##2a4720;
 	color: #fff;
 }
 .nav-tabs.nav-tabs-solid.nav-tabs-rounded {
@@ -1260,7 +1260,7 @@ button.bg-danger:hover {
 .nav-tabs.nav-tabs-top > li > a.active,
 .nav-tabs.nav-tabs-top > li > a.active:hover,
 .nav-tabs.nav-tabs-top > li > a.active:focus {
-	border-top-color: #20c0f3;
+	border-top-color: ##2a4720;
 }
 .nav-tabs.nav-tabs-bottom > li > a.active, 
 .nav-tabs.nav-tabs-bottom > li > a.active:hover, 
@@ -2649,7 +2649,7 @@ html.menu-opened body {
     padding-right: 3px;
 }
 .view-btn {
-    color: #0de0fe;
+    color: #2a4720;
     font-size: 13px;
     border: 2px solid #0de0fe;
     text-align: center;
@@ -2658,7 +2658,7 @@ html.menu-opened body {
 	padding: 6px;
 }
 .view-btn:hover, .view-btn:focus {
-	background-color: #0de0fe;
+	background-color: #2a4720;
 	color: #fff;
 }
 .book-btn {
@@ -2783,8 +2783,8 @@ html.menu-opened body {
 	padding: 80px 0;
 }
 .book-btn1 {
-	background-color: #0de0fe;
-	border: 2px solid #0de0fe;
+	background-color: #2a4720;
+	border: 2px solid #2a4720;
 	color: #fff;
 	font-size: 16px;
 	text-align: center;
