@@ -829,7 +829,7 @@ button.bg-danger:hover {
     transform-origin: left top 0;
 }
 .dropdown-item.active, .dropdown-item:active {
-    background-color: #0de0fe;
+    background-color: #2a4720;
 }
 .navbar-nav .open .dropdown-menu {
 	border: 0;
@@ -1522,7 +1522,7 @@ button.bg-danger:hover {
 .slick-prev:focus,
 .slick-next:hover,
 .slick-next:focus {
-    background-color: #0de0fe;
+    background-color: #2a4720;
 	color: #fff;
 	opacity: 1;
 }
@@ -2009,7 +2009,7 @@ button.bg-danger:hover {
     width: 31px;
 }
 .bar-icon span {
-    background-color: #0de0fe;
+    background-color: #;
     display: block;
     float: left;
     height: 3px;
@@ -2212,7 +2212,7 @@ html.menu-opened body {
     margin-bottom: 3px;
 }
 .login-header h3 a {
-    color: #0de0fe;
+    color: #2a4720;
     float: right;
     font-size: 15px;
     margin-top: 2px;
@@ -2434,11 +2434,11 @@ html.menu-opened body {
     -moz-osx-font-smoothing: grayscale;
 }
 .slick-dots li.slick-active button {
-    background-color: #0de0fe;
+    background-color: #2a4720;
 }
 .slick-dots li.slick-active button:before {
     opacity: 1;
-    color: #0de0fe;
+    color: #2a4720;
 }
 .slick-slide {
 	outline: none !important;
@@ -2491,7 +2491,7 @@ html.menu-opened body {
 }
 .speicality-img span i {
     font-size: 15px;
-	color:#0de0fe;
+	color:#2a4720;
 }
 .speicality-item p {
     font-size: 16px;
@@ -2651,7 +2651,7 @@ html.menu-opened body {
 .view-btn {
     color: #2a4720;
     font-size: 13px;
-    border: 2px solid #0de0fe;
+    border: 2px solid #2a4720;
     text-align: center;
     display: block;
     font-weight: 500;
@@ -2663,7 +2663,7 @@ html.menu-opened body {
 }
 .book-btn {
 	background-color: #fff;
-    border: 2px solid #0de0fe;
+    border: 2px solid #2a4720;
     color: #1b380f;
     font-size: 13px;
     text-align: center;
@@ -2673,7 +2673,7 @@ html.menu-opened body {
 }
 .book-btn:hover, .book-btn:focus {
 	background-color: #1b380f;
-	border-color: #0de0fe;
+	border-color: #2a4720;
 	color: #fff;
 }
 .section-doctor .profile-widget {
@@ -2792,8 +2792,8 @@ html.menu-opened body {
 	padding: 6px 10px;
 }
 .book-btn1:hover{
-	background-color: #01cae4;
-	border-color: #01cae4;
+	background-color: #2a4720;
+	border-color: #2a4720;
 	color: #ffffff;
 }
 .doctor-book-card {
@@ -3063,7 +3063,7 @@ html.menu-opened body {
     display: none;
     left: 4px;
     top: 0;
-    color: #0de0fe;
+    color: #2a4720;
     font-size: 11px;
 }
 .custom_check input:checked ~ .checkmark:after {
@@ -3132,8 +3132,8 @@ html.menu-opened body {
 	line-height: 18px;
 }
 .btn-search .btn {
-    background-color: #0de0fe;
-    border: 1px solid #0de0fe;
+    background-color: #2a4720;
+    border: 1px solid #2a4720;
     color: #fff;
     height: 46px;
 	font-weight:500;
@@ -4317,7 +4317,7 @@ html.menu-opened body {
 -----------------------*/
 
 .add-new-btn {
-    background-color: #0de0fe;
+    background-color: #2a4720;
     border-radius: 30px;
     color: #fff;
     display: inline-block;
@@ -4326,7 +4326,7 @@ html.menu-opened body {
     padding: 10px 20px;
 }
 .add-new-btn:focus, .add-new-btn:hover,.add-new-btn:active {
-	background-color: #0de0fe;
+	background-color: #2a4720;
     color: #fff;
 }
 .patient-info {
@@ -4771,8 +4771,8 @@ html.menu-opened body {
     color: #9f9f9f;
 }
 .chat-cont-right .chat-footer .input-group .input-group-append .btn.msg-send-btn {
-    background-color: #0de0fe;
-    border-color: #0de0fe;
+    background-color: #2a4720;
+    border-color: #2a4720;
     border-radius: 50%;
     color: #fff;
     margin-left: 10px;
@@ -5389,7 +5389,7 @@ html.menu-opened body {
 }
 .dashboard-menu > ul > li:hover > a,
 .dashboard-menu > ul > li.active > a {
-	color:#0de0fe;
+	color:#2a4720;
 }
 .dashboard-menu ul li a i {
     font-size: 16px;
@@ -6670,7 +6670,7 @@ html.menu-opened body {
 }
 .product-custom .profile-widget:hover .cart-icon{
 	color: #fff;
-	background-color: #0de0fe;
+	background-color: #2a4720;
 }
 .product-description .doctor-img1{
 	width: 40%;
@@ -7883,7 +7883,7 @@ ul.benifits-col li i{
 		padding: 30px 0;
 	} 
 	.login-header h3 a {
-		color: #0de0fe;
+		color: #2a4720;
 		float: none;
 		font-size: 15px;
 		margin-top: 10px;
