@@ -16,6 +16,7 @@
 	
 }{
  
+   
 			<!-- Page Content -->
 			<div class="content">
 				<div class="container">
@@ -109,7 +110,7 @@
       <td valign="top"><p>
       <select name="DayToBook" required="true" id="DayToBook">
            @for(incDay <- 0 to 29) {
-          <option selected ="@{if(incDay==1) "true" else "false" }"  value="@{localDate.plusDays(incDay).getDayOfWeek().toString +","+ localDate.plusDays(incDay)}">
+          <option selected ="@{if(incDay==1) "true" else "false" }"  value="@{localDate.plusDays(incDay).getDayOfWeek().toString +", "+ localDate.plusDays(incDay)}">
           @{localDate.plusDays(incDay).getDayOfWeek().toString +","+ localDate.plusDays(incDay)}</option>
           
         }
@@ -138,13 +139,13 @@
 								
                             </div>
 							
-							
+							   
 						</div>
 					</div>
 				</div>
 
 			</div>		
 			<!-- /Page Content -->
-
+  <script type="text/javascript" src="C:\Users\bowden_sama\workspace2\twisdenwood2\public\javascripts\script.js"></script>
   
 }
