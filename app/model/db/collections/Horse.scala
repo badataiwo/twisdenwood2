@@ -109,8 +109,9 @@ object Horse extends DataStore {
   }
   
   def findActiveHorses() = {
-    val rec = coll.find(and(equal("Active",true), equal("ForLease",false))).results()
-     
+   // val rec = coll.find(and(equal("Active",true), equal("ForLease",false))).results()
+      val rec = coll.find(and(equal("Active",true))).results()
+   
     appLogger.info("Active Horses records result is: " + rec)
      
      rec
