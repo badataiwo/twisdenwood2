@@ -163,12 +163,21 @@ class AdminController @Inject() (cc: ControllerComponents) extends AbstractContr
     //val messages: Messages = request.messages
     //val title: String = messages("home.title")  
  
-    val horses = Horse.findAll().toList
-     val trainers = Trainer.findAll().toList
+    
      val lessonBooking = LessonBooking.findAll().toList
     appLogger.info("Loading Schedule page")    
-    Ok(views.html.viewbookings("View Bookings", horses, trainers, lessonBooking))
+    Ok(views.html.viewbookings("View Bookings", lessonBooking))
   }  
+  
+  def deleteLessonSchedule(bookingid: String) = Action { implicit request: Request[AnyContent] =>
+     
+      LessonBooking.delete(bookingid)
+      val lessonBooking = LessonBooking.findAll().toList
+    appLogger.info("Loading Schedule page")    
+    Ok(views.html.viewbookings("View Bookings", lessonBooking))      
+
+    
+  }
     
   //  def about() = Action { implicit request: Request[AnyContent] =>
   //    Ok(views.html.about("About"))

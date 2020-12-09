@@ -22,6 +22,8 @@ GET	  /addHorseRecord		 controllers.AdminController.addHorseRecord(horseid: Stri
 GET	  /updateTrainerRecord		controllers.AdminController.updateTrainerRecord(trainerid : String, tname: String, traineractive: Option[String], TrainerSkill: String, TrainerRating: Int, timageurl: String, but: String)
 GET   /deleteTrainerRecord		controllers.AdminController.deleteTrainerRecord(trainerid : String)
 GET   /addTrainerRecord			controllers.AdminController.addTrainerRecord( tname: String, traineractive: Option[String], TrainerSkill: String, TrainerRating: Int, timageurl: String, but: Option[String])
+GET	  /deleteLessonSchedule		controllers.AdminController.deleteLessonSchedule(bookingid: String)
+
 GET   /forlease		controllers.HomeController.leasing()
 GET	  /viewbookings		controllers.AdminController.viewSchedule()
 GET   /register       controllers.ClientController.register()

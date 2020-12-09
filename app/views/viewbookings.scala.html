@@ -1,5 +1,5 @@
 
-@(topic: String, horses : List[model.db.collections.Horse], trainers : List[model.db.collections.Trainer], lessonBooking : List[model.db.collections.LessonBooking])(implicit session: Session, messages: Messages, flash: Flash)
+@(topic: String, lessonBooking : List[model.db.collections.LessonBooking])(implicit session: Session, messages: Messages, flash: Flash)
 
 @main(topic) {  
 
@@ -67,13 +67,13 @@
 																	</td>
 																	<td> <input class="form-control" readonly="readonly" value="@lesson.ClientFName"> <span class="d-block text-info"></span></td>
 																	<td> <input class="form-control" readonly="readonly" value="@lesson.ClientLName">
-																	<td><input class="form-control" readonly="readonly" value="@lesson.BookingDate"></td>
+																	<td><input class="form-control" readonly="readonly" value="@lesson.BookingDate at @lesson.TimeOfDay"></td>
 																	<td><input class="form-control" readonly="readonly" value="@lesson.HorseID"></td>
 																	
 																	
 																	<td class="text-right">
 																		<div class="table-action">
-																			<a href="javascript:void(0);" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i> Cancel</a>
+																			<a href="/deleteLessonSchedule?bookingid=@lesson.BookingID" class="btn bg-danger-light trash"><i class="far fa-trash-alt"></i> Cancel</a>
 																			
 																		</div>
 																	</td>
