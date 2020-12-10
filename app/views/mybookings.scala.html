@@ -1,5 +1,5 @@
 
-@(topic: String, lessonBooking : List[model.db.collections.LessonBooking])(implicit session: Session, messages: Messages, flash: Flash)
+@(topic: String, myBookings : List[model.db.collections.LessonBooking])(implicit session: Session, messages: Messages, flash: Flash)
 
 @main(topic) {  
 
@@ -10,7 +10,7 @@
 			<!-- Page Content -->
 			<br>
 			<div style= "text-align: center" class="container">
-			<button> <a href="adminHome">Back to Admin Home Page</a></button>
+			
 			</div>
 			
 			<div class="content">
@@ -28,7 +28,7 @@
 									<nav class="user-tabs mb-4">
 										<ul class="nav nav-tabs nav-tabs-bottom nav-justified">
 											<li class="nav-item">
-												<a class="nav-link active" href="#pat_appointments" data-toggle="tab">Scheduled Lessons</a>
+												<a class="nav-link active" href="#pat_appointments" data-toggle="tab">My Scheduled Lessons</a>
 											</li>
 											
 										</ul>
@@ -48,27 +48,26 @@
 																
 																<tr>
 																	<th style =" width: 120px">Trainer</th>
-																	<th>Client First Name</th>
-																	<th>Client Last Name</th>
-																	<th style =" width: 400px">Lesson Date and Time</th>
 																	<th>Horse</th>
+													
+																	<th style =" width: 400px">Lesson Date and Time</th>
+																	
 																
-																	<th></th>
+																	
 																</tr>
 																
 															</thead>
 															<tbody>
-																@for(lesson <- lessonBooking) {
+																@for(lesson <- myBookings) {
 																<tr>
 																	<td>
 																		
 																		 <input class="form-control" readonly="readonly" value="@lesson.TrainerID"> 
 																		</h2>
 																	</td>
-																	<td> <input class="form-control" readonly="readonly" value="@lesson.ClientFName"> <span class="d-block text-info"></span></td>
-																	<td> <input class="form-control" readonly="readonly" value="@lesson.ClientLName">
-																	<td><input class="form-control" readonly="readonly" value="@lesson.BookingDate at @lesson.TimeOfDay"></td>
 																	<td><input class="form-control" readonly="readonly" value="@lesson.HorseID"></td>
+																	<td><input class="form-control" readonly="readonly" value="@lesson.BookingDate at @lesson.TimeOfDay"></td>
+																	
 																	
 																	
 																	<td class="text-right">

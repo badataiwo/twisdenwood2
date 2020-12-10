@@ -32,6 +32,8 @@ class AdminController @Inject() (cc: ControllerComponents) extends AbstractContr
     Ok(views.html.edit("Admin Edit", horses, trainers))
   }
   
+    
+  
   def processAdminLogin(username: String, pwd: String) = Action { implicit request: Request[AnyContent] =>
     //val messages: Messages = request.messages
     //val title: String = messages("home.title")  
@@ -168,7 +170,16 @@ class AdminController @Inject() (cc: ControllerComponents) extends AbstractContr
     appLogger.info("Loading Schedule page")    
     Ok(views.html.viewbookings("View Bookings", lessonBooking))
   }  
-  
+
+    def clientSchedule() = Action { implicit request: Request[AnyContent] =>
+    //val messages: Messages = request.messages
+    //val title: String = messages("home.title")  
+ 
+    
+     val myBookings = LessonBooking.findAll().toList
+    appLogger.info("Loading Schedule page")    
+    Ok(views.html.mybookings("View My Bookings", myBookings))
+  }  
   def deleteLessonSchedule(bookingid: String) = Action { implicit request: Request[AnyContent] =>
      
       LessonBooking.delete(bookingid)

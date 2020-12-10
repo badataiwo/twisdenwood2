@@ -26,6 +26,7 @@ GET	  /deleteLessonSchedule		controllers.AdminController.deleteLessonSchedule(bo
 
 GET   /forlease		controllers.HomeController.leasing()
 GET	  /viewbookings		controllers.AdminController.viewSchedule()
+GET	  /mybookings		controllers.AdminController.clientSchedule()
 GET   /register       controllers.ClientController.register()
 POST  /register      controllers.ClientController.processPage()
 
