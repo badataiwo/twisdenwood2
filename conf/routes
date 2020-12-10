@@ -8,7 +8,7 @@ GET   /               controllers.HomeController.index
 GET	  /booking		 controllers.BookingController.booking()
 GET	  /bookingtrainer		 controllers.BookingController.bookingtrainerstep(horseid: String)
 GET	  /bookingselecttime	 controllers.BookingController.bookingSelectime(horseid: String, trainerid: String)
-GET	  /bookingconfirm			controllers.BookingController.bookingConfirm(FName: String, LName: String, Email: String, DayToBook:String,TimeToSelect: String,SubButton: String, horseid : String, trainerid: String)
+GET	  /bookingconfirm			controllers.BookingController.bookingConfirm(FName: String, LName: String, Email: Option[String], DayToBook:String,TimeToSelect: String,SubButton: String, horseid : String, trainerid: String)
 
 GET   /forlease			controllers.HomeController.leasing()
 GET	  /edit				controllers.AdminController.adminEdit()
@@ -23,10 +23,10 @@ GET	  /updateTrainerRecord		controllers.AdminController.updateTrainerRecord(trai
 GET   /deleteTrainerRecord		controllers.AdminController.deleteTrainerRecord(trainerid : String)
 GET   /addTrainerRecord			controllers.AdminController.addTrainerRecord( tname: String, traineractive: Option[String], TrainerSkill: String, TrainerRating: Int, timageurl: String, but: Option[String])
 GET	  /deleteLessonSchedule		controllers.AdminController.deleteLessonSchedule(bookingid: String)
-
+GET	  /clientDeleteLessonSchedule		controllers.BookingController.deleteLessonSchedule(bookingid: String)
 GET   /forlease		controllers.HomeController.leasing()
 GET	  /viewbookings		controllers.AdminController.viewSchedule()
-GET	  /mybookings		controllers.AdminController.clientSchedule()
+GET	  /mybookings		controllers.BookingController.clientSchedule()
 GET   /register       controllers.ClientController.register()
 POST  /register      controllers.ClientController.processPage()
 

@@ -82,9 +82,9 @@ object LessonBooking extends DataStore {
     /** Todo: What if findRecord returns no results. This should return an option **/
   }
   
-  def findBookingBasedOnCustomer(clientFName: String, clientLName: String, BookingDate: String) = {
+  def findBookingBasedOnCustomer(clientFName: String, clientLName: String) = {
     
-    val rec = coll.find(and(equal("ClientFName", clientFName), equal("ClientLName",clientLName),equal("BookingDate",BookingDate))).results()
+    val rec = coll.find(and(equal("ClientFName", clientFName), equal("ClientLName",clientLName))).results()
      appLogger.info("Active Horses records result is: " + rec)
      rec
   }

@@ -84,17 +84,12 @@
 							<li class="@if(title == "Booking"){ active }">
 								<a href="/booking">Book a Lesson</a>
 							</li>
+							 @if(!session.isEmpty) {
+						     <li>
+							   <a class="active" href="/mybookings">My Bookings</a>	
+						     </li>
+						   }
 							
-							<!--  
-							<li class="has-submenu">
-								<a href="#" target="_blank">Admin <i class="fas fa-chevron-down"></i></a>
-								<ul class="submenu">
-									<li><a href="admin/index.html" target="_blank">Admin</a></li>
-									<li><a href="pharmacy/index.html" target="_blank">Admin User</a></li>
-								</ul>
-							</li>
-	
-							-->
 							@*
 							<li class="">
 								<a href="/login">Login / Signup</a>
@@ -105,23 +100,12 @@
 					<ul class="nav header-navbar-rht">
 						<li class="@if(session.get("username") != null) {active}">
 								@session.get("username")
-							</li>
-								
+							</li>	
 					
 						<li class="nav-item">
 							<a class="nav-link header-login" href="contactUs">Contact Us </a>
 						</li>
-						<!-- @*  
-						@for(key <- Array("username")){
-							@if(session.get(key) != null){
-								<li class="@if(session.get("username") != null) {active}">
-							<a class="nav-link header-login" href="@routes.ClientController.logout()">Logout </a>
-							
-						</li> 
-							}
 						
-						}
-						*@-->
 						
 						@if(session.isEmpty) {
 						   <li>

@@ -11,7 +11,7 @@ import model.db.collections._
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
- * application's home page.
+ * application's booking pages.
  */
 //@Singleton
 class BookingController @Inject() (cc: ControllerComponents) extends AbstractController(cc) with I18nSupport {
@@ -28,7 +28,41 @@ class BookingController @Inject() (cc: ControllerComponents) extends AbstractCon
    * a path of `/`.
    */
   
+   def clientSchedule() = Action { implicit request: Request[AnyContent] =>
+    //val messages: Messages = request.messages
+    //val title: String = messages("home.title")  
+ 
+      val usernameOpt = request.session.get("username")
+         
+         usernameOpt.map { username =>
+           val client = Client.findRecord(username)
+           
+      val myBookings = LessonBooking.findBookingBasedOnCustomer(client.FirstName,client.LastName).toList
+     appLogger.info("Loading Schedule page")    
+     Ok(views.html.mybookings("My Bookings", myBookings))
+           
+      }.getOrElse(Redirect(routes.ClientController.login()))
+    
+  } 
+  
+   def deleteLessonSchedule(bookingid: String) = Action { implicit request: Request[AnyContent] =>
+     
+     
+     val usernameOpt = request.session.get("username")
+         
+         usernameOpt.map { username =>
+            LessonBooking.delete(bookingid)
+           val client = Client.findRecord(username)
+           
+      val myBookings = LessonBooking.findBookingBasedOnCustomer(client.FirstName,client.LastName).toList
+     appLogger.info("Loading Schedule page")    
+     Ok(views.html.mybookings("My Bookings", myBookings))
+           
+      }.getOrElse(Redirect(routes.ClientController.login())) 
 
+    
+  }
+  
     def booking() = Action { implicit request: Request[AnyContent] =>
      // val horses = Horse.findAll().toList
       val horses = Horse.findActiveHorses().toList
@@ -49,8 +83,7 @@ class BookingController @Inject() (cc: ControllerComponents) extends AbstractCon
       appLogger.info(s"Debug Loading bookingtrainerstep() ${horseid}")
       val trainers = Trainer.findAll().toList
       Ok(views.html.bookingtrainer("Booking", horse, trainers))
-        }.getOrElse(Redirect(routes.ClientController.login()))
-        
+        }.getOrElse(Redirect(routes.ClientController.login()))   
     }
     
     def bookingSelectime(horseid :  String, trainerid: String) = Action { implicit request: Request[AnyContent] =>
@@ -66,10 +99,9 @@ class BookingController @Inject() (cc: ControllerComponents) extends AbstractCon
            
          }.getOrElse(Redirect(routes.ClientController.login()))
          
-        
     }
     
-    def bookingConfirm(FName: String, LName: String, Email: String, DayToBook:String,TimeToSelect:String,SubButton:String, horseid :  String, trainerid: String) = Action { implicit request: Request[AnyContent] =>
+    def bookingConfirm(FName: String, LName: String, Email: Option[String], DayToBook:String,TimeToSelect:String,SubButton:String, horseid :  String, trainerid: String) = Action { implicit request: Request[AnyContent] =>
      
         
       appLogger.info(s"Debug Loading bookingConfirm() ${horseid}")
@@ -80,52 +112,12 @@ class BookingController @Inject() (cc: ControllerComponents) extends AbstractCon
            Ok(views.html.bookingerrmsg("Booking","Sorry, there is a lesson scheduled on " + DayToBook + " " + TimeToSelect))
         
         }else{
-          LessonBooking.create(horseid, trainerid, FName, LName, Email, DayToBook, TimeToSelect, true)
+            val aEmail = Email.getOrElse("noEmail@example.com")
+          LessonBooking.create(horseid, trainerid, FName, LName, aEmail, DayToBook, TimeToSelect, true)
           Ok(views.html.bookingconfirm("Booking", FName, DayToBook, TimeToSelect))
         }
       
     }
     
-  
-  def leasing() = Action { implicit request: Request[AnyContent] =>
-     // val horses = Horse.findAll().toList
-      val horses = Horse.findHorsesForLease().toList
-      appLogger.info("Debug leasing()")
-      Ok(views.html.forlease("Horses For Lease", horses))
-    }
-  
-  
-  
-  
-  
-    
-  //  def about() = Action { implicit request: Request[AnyContent] =>
-  //    Ok(views.html.about("About"))
-  //  }
-  //
-  //  def products() = Action { implicit request: Request[AnyContent] =>
-  //    Ok(views.html.products("Products"))
-  //  }
-
-  /***
-  *  We might need to use this function to load certain pages.
-  */
-  def loadPage(page: String) = Action { implicit request: Request[AnyContent] =>
-    appLogger.debug(s"Loading page: $page")
-    
-    page match {
-    //  case "booking"    => Ok(views.html.booking(page.capitalize))
-      case "about"      => Ok(views.html.about(page.capitalize))
-     // case "products" => Ok(views.html.products(page.capitalize))
-    //  case "forlease" => Ok(views.html.forlease(page.capitalize))
-      case "showing" => Ok(views.html.showing(page.capitalize))
-      case "contactUs" => Ok(views.html.contactUs(page.capitalize))
-      case "services" => Ok(views.html.services(page.capitalize))
-      //case "login" => Ok(views.html.login(page.capitalize))
-       //case "register" => Ok(views.html.register(page.capitalize))
-      case _          => Ok(views.html.index("Welcome"))
-    }
-  }
-  
-
+   
 }

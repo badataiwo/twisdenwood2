@@ -16,7 +16,7 @@ import model.db.collections.Client
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
- * application's home page.
+ * application's related to Login on the customer side.
  */
 //@Singleton
 class ClientController @Inject() (
